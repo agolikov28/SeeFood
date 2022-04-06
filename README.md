@@ -15,3 +15,5 @@ would be.
 https://stackoverflow.com/questions/37287910/how-to-extract-text-from-image-android-app
 
 https://keep.google.com/u/0/
+
+https://gadgetstouse.com/blog/2021/05/21/copy-text-from-images-on-android-iphone-pc/#:~:text=Thanks%20to%20Google%20Lens%20technology,web%20and%20the%20mobile%20app.
