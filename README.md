@@ -1,5 +1,5 @@
 # SeeFood
-CMSC436 Final Project Spring22
+CMSC436 Final Project Spring22 Chinhnam's Edit
 
 ### Idea: 
 With this app users will take pictures of food labels and the app will extract nutritional information
