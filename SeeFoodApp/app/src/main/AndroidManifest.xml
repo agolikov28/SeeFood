@@ -18,6 +18,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".MyDietActivity"
+            android:label="My Diet Activity" />
+
+        <activity
+            android:name=".NewDietActivity"
+            android:label="New Diet Activity" />
+
     </application>
 
 </manifest>
