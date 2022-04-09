@@ -29,9 +29,17 @@ how much more of each group they need to eat to fulfil their daily intake.
 ## Fundamental Parts
 ### Image Processing: 
 
+We are going to need image processing to get the information from the labels into the application. Listed below are some sources we canuse for image processing.
+
 Using Google Keep: https://keep.google.com/u/0/ and
 https://gadgetstouse.com/blog/2021/05/21/copy-text-from-images-on-android-iphone-pc/#:~:text=Thanks%20to%20Google%20Lens%20technology,web%20and%20the%20mobile%20app.
 
 Stack Overflow Android Scanners: https://stackoverflow.com/questions/37287910/how-to-extract-text-from-image-android-app
 
 Camera Scanner: https://v4all123.blogspot.com/2018/03/simple-example-of-ocrreader-in-android.html
+
+### Data Management:
+
+We plan on managing our data using shared preferences as they are cheap and can store string information over app usages. This is far easier than using a third party storage method such as SQL or Firebase.
+
+We are only going to store one diet at a time. When a user selects to create a new plan, a message will pop up warning them that their current nutrition plan is about to be deleted.
