@@ -43,3 +43,7 @@ Camera Scanner: https://v4all123.blogspot.com/2018/03/simple-example-of-ocrreade
 We plan on managing our data using shared preferences as they are cheap and can store string information over app usages. This is far easier than using a third party storage method such as SQL or Firebase.
 
 We are only going to store one diet at a time. When a user selects to create a new plan, a message will pop up warning them that their current nutrition plan is about to be deleted.
+
+### Macros Calculator:
+
+https://healthyeater.com/flexible-dieting-calculator
