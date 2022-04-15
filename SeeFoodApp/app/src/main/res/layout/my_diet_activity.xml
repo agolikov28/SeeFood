@@ -4,7 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:ignore="MissingConstraints">
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/fullmydiet"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/newLabelBtn"
@@ -49,16 +62,6 @@
         android:text="TextView"
         tools:layout_editor_absoluteX="81dp"
         tools:layout_editor_absoluteY="285dp" />
-
-    <TextView
-        android:id="@+id/titleText"
-        android:layout_width="58dp"
-        android:layout_height="21dp"
-        android:text="SeeFood"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="165dp" />
 
     <ProgressBar
         android:id="@+id/macro1Bar"
