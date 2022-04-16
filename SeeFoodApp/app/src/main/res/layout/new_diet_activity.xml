@@ -19,29 +19,13 @@
         app:layout_constraintTop_toTopOf="parent"
          />
 
-    <Button
-        android:id="@+id/saveBtn"
-        android:layout_width="306dp"
-        android:layout_height="65dp"
-        android:layout_marginBottom="-1330dp"
-        android:backgroundTint="@color/white"
-        android:fontFamily="@font/rockobold"
-        android:letterSpacing="0"
-        android:text="SAVE AND CONTINUE"
-        android:textColor="@color/lightGreen"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.307" />
+
 
     <TextView
         android:id="@+id/nameTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/rockobold"
+        android:fontFamily="@font/rocko_bold"
         android:letterSpacing="0.03"
         android:shadowColor="@color/shadowGreen"
         android:shadowDx="4"
@@ -60,13 +44,12 @@
 
     <EditText
         android:id="@+id/nameText"
-        android:layout_width="0dp"
+        android:layout_width="116dp"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/nameTitle"
         android:layout_marginStart="228dp"
         android:layout_toRightOf="@+id/nameTitle"
         android:background="@color/white"
-        android:ems="6"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +63,7 @@
         android:id="@+id/heightTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/rockobold"
+        android:fontFamily="@font/rocko_bold"
         android:letterSpacing="0.03"
         android:shadowColor="@color/shadowGreen"
         android:shadowDx="4"
@@ -98,28 +81,86 @@
         app:layout_constraintVertical_bias="0.520" />
 
     <EditText
-        android:id="@+id/heightText"
+        android:id="@+id/heightFeet"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/heightTitle"
         android:layout_marginStart="228dp"
         android:layout_toRightOf="@+id/heightTitle"
         android:background="@color/white"
-        android:ems="6"
-        android:inputType="numberDecimal"
+        android:ems="2"
+        android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.522">
-
         <requestFocus />
     </EditText>
+
+    <TextView
+        android:id="@+id/feetTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rocko_bold"
+        android:letterSpacing="0.03"
+        android:shadowColor="@color/shadowGreen"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="2"
+        android:text="ft"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.74"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.520" />
+
+    <EditText
+        android:id="@+id/heightInches"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/heightTitle"
+        android:layout_marginStart="304dp"
+        android:layout_toRightOf="@+id/heightTitle"
+        android:background="@color/white"
+        android:ems="2"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.522">
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/inchesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rocko_bold"
+        android:letterSpacing="0.03"
+        android:shadowColor="@color/shadowGreen"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="2"
+        android:text="in"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.936"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.520" />
 
     <TextView
         android:id="@+id/weightTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/rockobold"
+        android:fontFamily="@font/rocko_bold"
         android:letterSpacing="0.03"
         android:shadowColor="@color/shadowGreen"
         android:shadowDx="4"
@@ -139,13 +180,12 @@
 
     <EditText
         android:id="@+id/weightText"
-        android:layout_width="0dp"
+        android:layout_width="116dp"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/weightTitle"
         android:layout_marginStart="228dp"
         android:layout_toRightOf="@+id/weightTitle"
         android:background="@color/white"
-        android:ems="6"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -156,15 +196,36 @@
     </EditText>
 
     <TextView
+        android:id="@+id/poundsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rocko_bold"
+        android:letterSpacing="0.03"
+        android:shadowColor="@color/shadowGreen"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="2"
+        android:text="lbs"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.945"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.645" />
+
+    <TextView
         android:id="@+id/bmiText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/rockonormal"
+        android:fontFamily="@font/rocko_normal"
         android:letterSpacing="0.03"
         android:text="Calculated BMI:"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/saveBtn"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -172,17 +233,52 @@
         app:layout_constraintVertical_bias="0.75"/>
 
     <TextView
+        android:background="@drawable/bmi_square"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" />
+
+    <View
+        android:id="@+id/bmiClass"
+        android:layout_width="90dp"
+        android:layout_height="55dp"
+        app:layout_constraintBottom_toBottomOf="@+id/saveBtn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.845"/>
+
+    <TextView
+        android:id="@+id/bmiResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rocko_normal"
+        android:letterSpacing="0.03"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="45sp"
+        android:shadowColor="@color/shadowGreen"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="2"
+        app:layout_constraintBottom_toBottomOf="@+id/saveBtn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.84"/>
+
+    <TextView
         android:id="@+id/infoText2"
-        android:layout_width="336dp"
-        android:layout_height="78dp"
+        android:layout_width="357dp"
+        android:layout_height="76dp"
         android:layout_marginBottom="-120dp"
-        android:fontFamily="@font/rockonormal"
+        android:fontFamily="@font/rocko_normal"
         android:letterSpacing="0.03"
         android:shadowColor="@color/shadowGreen"
         android:shadowDx="3"
         android:shadowDy="3"
         android:shadowRadius="2"
-        android:text="Please enter your information below.\nAn online calculator will be used to\ncalculate your BMI and determine \nyour ideal macro intake. "
+        android:text="Please enter your information below.\nYour BMI will automatically be computed.\n Click SAVE to start tracking progress."
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -191,5 +287,23 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.483" />
+
+    <Button
+        android:id="@+id/saveBtn"
+        android:layout_width="320dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="-1330dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/rocko_bold"
+        android:letterSpacing="0"
+        android:text="SAVE AND CONTINUE"
+        android:textColor="@color/lightGreen"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.307" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

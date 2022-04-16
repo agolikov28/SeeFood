@@ -3,9 +3,10 @@
     <font
         android:fontStyle="normal"
         android:fontWeight="400"
-        android:font="@font/rockonormal" />
+        android:font="@font/rocko_normal" />
     <font
         android:fontStyle="normal"
         android:fontWeight="700"
-        android:font="@font/rockobold" />
+        android:font="@font/rocko_bold" />
+
 </font-family>

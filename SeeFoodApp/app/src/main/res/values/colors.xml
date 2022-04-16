@@ -7,5 +7,11 @@
     <color name="lightOrange">#F1A463</color>
     <color name="darkOrange">#D97F39</color>
 
+    <color name="bmiBlue">#4cc9f0</color>
+    <color name="bmiGreen">#35ff69</color>
+    <color name="bmiYellow">#ffff00</color>
+    <color name="bmiOrange">#ff9600</color>
+
+
 
 </resources>
