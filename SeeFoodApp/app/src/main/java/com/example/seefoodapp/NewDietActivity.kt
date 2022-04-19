@@ -8,9 +8,13 @@ class NewDietActivity : AppCompatActivity() {
 
     private lateinit var dietName: EditText
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_diet_activity)
+
+
     }
+
 
 }
