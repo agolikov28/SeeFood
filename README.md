@@ -38,6 +38,8 @@ Stack Overflow Android Scanners: https://stackoverflow.com/questions/37287910/ho
 
 Camera Scanner: https://v4all123.blogspot.com/2018/03/simple-example-of-ocrreader-in-android.html
 
+Scan Fron Images: https://www.zoftino.com/extracting-text-from-images-android
+
 ### Data Management:
 
 We plan on managing our data using shared preferences as they are cheap and can store string information over app usages. This is far easier than using a third party storage method such as SQL or Firebase.

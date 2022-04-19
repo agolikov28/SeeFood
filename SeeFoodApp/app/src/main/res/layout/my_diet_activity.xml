@@ -19,17 +19,18 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-<Button
-    android:id="@+id/newLabelBtn"
-    android:layout_width="121dp"
-    android:layout_height="72dp"
-    android:layout_marginBottom="69dp"
-    android:text="Scan New Label"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toStartOf="@+id/clearDietBtn"
-    app:layout_constraintStart_toEndOf="@+id/statsBtn"
-    app:layout_constraintTop_toBottomOf="@+id/macro1Bar"
-    app:layout_constraintVertical_bias="0.988" />
+    <Button
+        android:id="@+id/newLabelBtn"
+        android:layout_width="121dp"
+        android:layout_height="72dp"
+        android:layout_marginBottom="69dp"
+        android:text="Scan New Label"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/clearDietBtn"
+        app:layout_constraintStart_toEndOf="@+id/statsBtn"
+        app:layout_constraintTop_toBottomOf="@+id/macro1Bar"
+        app:layout_constraintVertical_bias="0.988" />
+
 
 <Button
     android:id="@+id/clearDietBtn"
@@ -93,27 +94,6 @@
     app:layout_constraintVertical_bias="0.65"/>
 
     <TextView
-        android:id="@+id/macro1Text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/rocko_bold"
-        android:letterSpacing="0.03"
-        android:shadowColor="@color/shadowGreen"
-        android:shadowDx="4"
-        android:shadowDy="4"
-        android:shadowRadius="2"
-        android:text="CARBOHYDRATES:"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="23sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.30" />
-
-    <TextView
         android:id="@+id/macro2Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -133,6 +113,63 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.45" />
+
+    <ProgressBar
+        android:id="@+id/macro1Bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="140dp"
+        android:layout_height="70dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/macro3Bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.996" />
+
+    <ProgressBar
+        android:id="@+id/macro2Bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="140dp"
+        android:layout_height="70dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/macro1Bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ProgressBar
+        android:id="@+id/macro3Bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="140dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.606" />
+
+
+    <TextView
+        android:id="@+id/macro1Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Carbohydrates"
+        app:layout_constraintBottom_toTopOf="@+id/macro2Text"
+        app:layout_constraintEnd_toStartOf="@+id/macro2Bar"
+        app:layout_constraintHorizontal_bias="0.477"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.851" />
 
     <TextView
         android:id="@+id/macro3Text"
