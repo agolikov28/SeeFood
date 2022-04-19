@@ -32,21 +32,11 @@ class NewDietActivity : AppCompatActivity() {
     private lateinit var mClass: View
 
     private lateinit var saveButton: Button
-<<<<<<< HEAD
-
-=======
->>>>>>> 63549819755ed68018a60265bbf86d9ab6dfea02
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_diet_activity)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-    }
-
-=======
         saveButton = findViewById<Button>(R.id.saveBtn)
         mName = findViewById<EditText>(R.id.nameText)
         mWeight = findViewById<EditText>(R.id.weightText)
@@ -119,80 +109,6 @@ class NewDietActivity : AppCompatActivity() {
         }
     }
 
-=======
-        saveButton = findViewById<Button>(R.id.saveBtn)
-        mName = findViewById<EditText>(R.id.nameText)
-        mWeight = findViewById<EditText>(R.id.weightText)
-        mFeet = findViewById<EditText>(R.id.heightFeet)
-        mInches = findViewById<EditText>(R.id.heightInches)
-        val shape: Drawable? = applicationContext.getDrawable(R.drawable.bmi_square)
-        mClass = findViewById<View>(R.id.bmiClass)
-        mClass.background = shape
-        mBMI = findViewById<TextView>(R.id.bmiResult)
-
-        val textWatcher: TextWatcher = object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence,start: Int,count: Int,after: Int) {}
-            override fun onTextChanged(s: CharSequence,start: Int,before: Int,count: Int){}
-            override fun afterTextChanged(s: Editable) {
-                if ((s.length in 2..3) || (s.contains('.') && s.length in 2..5)) {
-
-                    //computes users BMI
-                    val userBMI = calculateBMIImperial(
-                        mFeet.text.toString().toDouble(),
-                        mInches.text.toString().toDouble(), mWeight.text.toString().toDouble()
-                    )
-
-                    //sets color of BMI range (maybe explain colors in infotip)
-                    val bmiClass = classifyBMI(userBMI)
-                    if (bmiClass == BMI_UNDERWEIGHT) {
-                        mClass.setBackgroundColor(applicationContext.resources.getColor(R.color.bmiBlue))
-                    } else if (bmiClass == BMI_HEALTHY) {
-                        mClass.setBackgroundColor(applicationContext.resources.getColor(R.color.bmiGreen))
-                    } else if (bmiClass == BMI_OVERWEIGHT) {
-                        mClass.setBackgroundColor(applicationContext.resources.getColor(R.color.bmiYellow))
-                    } else {
-                        //BMI_OBESE
-                        mClass.setBackgroundColor(applicationContext.resources.getColor(R.color.bmiOrange))
-                    }
-                    mBMI.setText(
-                        userBMI.toInt().toString()
-                    ) // set TextView text to Text inside EditText
-                }
-            }
-        }
-
-        // add listener to the weight edittext
-        mWeight.addTextChangedListener(textWatcher)
-
-        //makes sure all fields are filled out before enabling button
-        saveButton.isEnabled = false
-        val editTexts = listOf(mName, mWeight, mFeet, mInches)
-        for (editText in editTexts) {
-            editText.addTextChangedListener(object : TextWatcher {
-                override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                    var et1 = mName.text.toString().trim()
-                    var et2 = mWeight.text.toString().trim()
-                    var et3 = mFeet.text.toString().trim()
-                    var et4 = mInches.text.toString().trim()
-
-                    saveButton.isEnabled = et1.isNotEmpty()
-                            && et2.isNotEmpty()
-                            && et3.isNotEmpty()
-                            && et4.isNotEmpty()
-                }
-                override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int){}
-                override fun afterTextChanged(s: Editable){}
-            })
-        }
-
-        //opens up user diet when they "save and continue
-        val myDietIntent = Intent(this, MyDietActivity::class.java)
-        saveButton.setOnClickListener() {
-            startActivity(myDietIntent)
-        }
-    }
-
->>>>>>> 63549819755ed68018a60265bbf86d9ab6dfea02
     //HELPER FUNCTIONS
 
     //calculates BMI based on imperial system
@@ -218,9 +134,5 @@ class NewDietActivity : AppCompatActivity() {
     //    fun calculateBMIMetric(heightCm: Double, weightKg: Double): Double {
 //        return weightKg / (heightCm / CENTIMETERS_IN_METER * (heightCm / CENTIMETERS_IN_METER))
 //    }
-<<<<<<< HEAD
->>>>>>> 63549819755ed68018a60265bbf86d9ab6dfea02
-=======
->>>>>>> 63549819755ed68018a60265bbf86d9ab6dfea02
 
 }
