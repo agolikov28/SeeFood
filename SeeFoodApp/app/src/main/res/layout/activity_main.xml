@@ -6,26 +6,76 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/currDietBtn"
-        android:layout_width="244dp"
-        android:layout_height="89dp"
-        android:text="My Diet"
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/fullhomepage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+
+    <Button
+        android:id="@+id/currDietBtn"
+        android:layout_width="306dp"
+        android:layout_height="65dp"
+        android:layout_marginBottom="-300dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/rocko_bold"
+        android:letterSpacing="0"
+        android:text="My Current Diet"
+        android:textColor="@color/lightGreen"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.307" />
 
     <Button
         android:id="@+id/newDietBtn"
-        android:layout_width="244dp"
-        android:layout_height="89dp"
-        android:text="Create a New Diet"
+        android:layout_width="306dp"
+        android:layout_height="65dp"
+        android:layout_marginBottom="-300dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/rocko_bold"
+        android:letterSpacing="0"
+        android:text="Create New Diet"
+        android:textColor="@color/lightGreen"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/currDietBtn"
-        app:layout_constraintTop_toBottomOf="@id/currDietBtn" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.428" />
+
+    <TextView
+        android:id="@+id/infoText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-120dp"
+        android:fontFamily="@font/rocko_normal"
+        android:letterSpacing="0.03"
+        android:shadowColor="@color/shadowGreen"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="2"
+        android:text="Snap pictures of food labels\nand keep track of your health!"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/currDietBtn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.483" />
+
 
     <TextView
         android:id="@+id/titleText"
@@ -36,4 +86,5 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="171dp"
         tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
