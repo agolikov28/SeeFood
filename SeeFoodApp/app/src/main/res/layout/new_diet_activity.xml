@@ -8,6 +8,7 @@
     tools:ignore="MissingConstraints">
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     <TextView
         android:id="@+id/titleText"
         android:layout_width="120dp"
@@ -15,6 +16,8 @@
         android:layout_marginTop="160dp"
         android:text="Enter Diet Name"
 =======
+=======
+>>>>>>> 63549819755ed68018a60265bbf86d9ab6dfea02
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="0dp"
@@ -22,16 +25,24 @@
         android:scaleType="centerCrop"
         android:src="@drawable/fullnewdiet"
         app:layout_constraintBottom_toBottomOf="parent"
+<<<<<<< HEAD
 >>>>>>> 63549819755ed68018a60265bbf86d9ab6dfea02
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
 <<<<<<< HEAD
         app:layout_constraintTop_toTopOf="parent" />
 =======
+=======
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+>>>>>>> 63549819755ed68018a60265bbf86d9ab6dfea02
         app:layout_constraintTop_toTopOf="parent"
          />
 
 
+<<<<<<< HEAD
+>>>>>>> 63549819755ed68018a60265bbf86d9ab6dfea02
+=======
 >>>>>>> 63549819755ed68018a60265bbf86d9ab6dfea02
 
     <TextView
@@ -196,6 +207,7 @@
         android:layout_width="116dp"
         android:layout_height="wrap_content"
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:layout_marginTop="272dp"
         android:text="Weight"
         app:layout_constraintEnd_toEndOf="parent"
@@ -203,6 +215,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 =======
+=======
+>>>>>>> 63549819755ed68018a60265bbf86d9ab6dfea02
         android:layout_alignBottom="@+id/weightTitle"
         android:layout_marginStart="228dp"
         android:layout_toRightOf="@+id/weightTitle"
@@ -215,12 +229,16 @@
 
         <requestFocus />
     </EditText>
+<<<<<<< HEAD
+>>>>>>> 63549819755ed68018a60265bbf86d9ab6dfea02
+=======
 >>>>>>> 63549819755ed68018a60265bbf86d9ab6dfea02
 
     <TextView
         android:id="@+id/poundsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
 <<<<<<< HEAD
         android:layout_marginTop="212dp"
         android:text="Height:"
@@ -229,6 +247,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 =======
+=======
+>>>>>>> 63549819755ed68018a60265bbf86d9ab6dfea02
         android:fontFamily="@font/rocko_bold"
         android:letterSpacing="0.03"
         android:shadowColor="@color/shadowGreen"
@@ -335,6 +355,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.307" />
+<<<<<<< HEAD
+>>>>>>> 63549819755ed68018a60265bbf86d9ab6dfea02
+=======
 >>>>>>> 63549819755ed68018a60265bbf86d9ab6dfea02
 
 </androidx.constraintlayout.widget.ConstraintLayout>
