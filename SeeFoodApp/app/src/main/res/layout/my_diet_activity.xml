@@ -4,100 +4,193 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:ignore="MissingConstraints">
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/fullmydiet"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/newLabelBtn"
         android:layout_width="121dp"
         android:layout_height="72dp"
+        android:layout_marginBottom="69dp"
         android:text="Scan New Label"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.895" />
+        app:layout_constraintEnd_toStartOf="@+id/clearDietBtn"
+        app:layout_constraintStart_toEndOf="@+id/statsBtn"
+        app:layout_constraintTop_toBottomOf="@+id/macro1Bar"
+        app:layout_constraintVertical_bias="0.988" />
 
-    <Button
-        android:id="@+id/clearDietBtn"
-        android:layout_width="97dp"
-        android:layout_height="44dp"
-        android:text="clear"
+
+<Button
+    android:id="@+id/clearDietBtn"
+    android:layout_width="97dp"
+    android:layout_height="44dp"
+    android:text="clear"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.949"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.899" />
+
+<Button
+    android:id="@+id/statsBtn"
+    android:layout_width="97dp"
+    android:layout_height="44dp"
+    android:text="stats"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.05"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.899" />
+
+
+<ProgressBar
+    android:id="@+id/macro1Bar"
+    style="?android:attr/progressBarStyleHorizontal"
+    android:layout_width="200dp"
+    android:layout_height="70dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.50" />
+
+<ProgressBar
+    android:id="@+id/macro2Bar"
+    style="?android:attr/progressBarStyleHorizontal"
+    android:layout_width="200dp"
+    android:layout_height="70dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.35"/>
+
+<ProgressBar
+    android:id="@+id/macro3Bar"
+    style="?android:attr/progressBarStyleHorizontal"
+    android:layout_width="200dp"
+    android:layout_height="70dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.65"/>
+
+    <TextView
+        android:id="@+id/macro2Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rocko_bold"
+        android:letterSpacing="0.03"
+        android:shadowColor="@color/shadowGreen"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="2"
+        android:text="PROTEIN:"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.949"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.899" />
+        app:layout_constraintVertical_bias="0.45" />
 
-    <Button
-        android:id="@+id/statsBtn"
-        android:layout_width="97dp"
-        android:layout_height="44dp"
-        android:text="stats"
+    <ProgressBar
+        android:id="@+id/macro1Bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="140dp"
+        android:layout_height="70dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/macro3Bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.996" />
+
+    <ProgressBar
+        android:id="@+id/macro2Bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="140dp"
+        android:layout_height="70dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/macro1Bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ProgressBar
+        android:id="@+id/macro3Bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="140dp"
+        android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.899" />
+        app:layout_constraintVertical_bias="0.606" />
 
 
     <TextView
         android:id="@+id/macro1Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="81dp"
-        tools:layout_editor_absoluteY="285dp" />
-
-    <TextView
-        android:id="@+id/titleText"
-        android:layout_width="58dp"
-        android:layout_height="21dp"
-        android:text="SeeFood"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        android:text="Carbohydrates"
+        app:layout_constraintBottom_toTopOf="@+id/macro2Text"
+        app:layout_constraintEnd_toStartOf="@+id/macro2Bar"
+        app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="165dp" />
-
-    <ProgressBar
-        android:id="@+id/macro1Bar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="104dp"
-        android:layout_height="37dp"
-        tools:layout_editor_absoluteX="194dp"
-        tools:layout_editor_absoluteY="281dp" />
-
-    <ProgressBar
-        android:id="@+id/macro3Bar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="104dp"
-        android:layout_height="37dp"
-        tools:layout_editor_absoluteX="194dp"
-        tools:layout_editor_absoluteY="379dp" />
-
-    <ProgressBar
-        android:id="@+id/macro2Bar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="104dp"
-        android:layout_height="37dp"
-        tools:layout_editor_absoluteX="194dp"
-        tools:layout_editor_absoluteY="330dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.851" />
 
     <TextView
         android:id="@+id/macro3Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="81dp"
-        tools:layout_editor_absoluteY="388dp" />
+        android:fontFamily="@font/rocko_bold"
+        android:letterSpacing="0.03"
+        android:shadowColor="@color/shadowGreen"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="2"
+        android:text="FAT:"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.60" />
 
-    <TextView
-        android:id="@+id/macro2Text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="81dp"
-        tools:layout_editor_absoluteY="339dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
