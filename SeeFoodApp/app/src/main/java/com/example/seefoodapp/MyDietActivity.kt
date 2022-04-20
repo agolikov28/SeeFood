@@ -1,9 +1,20 @@
 package com.example.seefoodapp
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.tasks.Task
+import com.google.firebase.ml.vision.FirebaseVision
+import com.google.firebase.ml.vision.common.FirebaseVisionImage
+import com.google.firebase.ml.vision.text.FirebaseVisionText
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
 
 class MyDietActivity : AppCompatActivity() {
 
@@ -52,7 +63,12 @@ class MyDietActivity : AppCompatActivity() {
     }
 
 
-    fun scanLabel(){
+    private fun scanLabel(){
+
+        val bitmap: Bitmap = BitmapFactory.decodeResource(resources, R.drawable.sample_food_label)
+        val macros = processImage(bitmap)
+
+        Log.i(TAG, "Macros in scanLabel Method: $macros")
         var gCarb = 35
         var gProtein = 8
         var gFat = 3
@@ -63,7 +79,7 @@ class MyDietActivity : AppCompatActivity() {
 
     }
 
-    fun clearDiet(){
+    private fun clearDiet(){
         currCarbs = 0
         currProtein = 0
         currFat = 0
@@ -71,11 +87,11 @@ class MyDietActivity : AppCompatActivity() {
         updateBars()
     }
 
-    fun pullUpStats(){
+    private fun pullUpStats(){
 
     }
 
-    fun updateBars(){
+    private fun updateBars(){
         carbBar.max = targetCarbs
         proteinBar.max = targetProtein
         fatBar.max = targetFat
@@ -88,4 +104,55 @@ class MyDietActivity : AppCompatActivity() {
 
 
     }
+
+    private fun processImage(bitmap: Bitmap) : Array<Int> {
+        var macros : Array<Int> = arrayOf(0)
+        val image = FirebaseVisionImage.fromBitmap(bitmap)
+        val textRecognizer = FirebaseVision.getInstance().onDeviceTextRecognizer
+
+        val result: Task<FirebaseVisionText> = textRecognizer.processImage(image)
+            .addOnSuccessListener {
+                //process success
+                Toast.makeText(this, "Image Processed Successfully", Toast.LENGTH_SHORT)
+                    .show()
+                macros = processFireBaseText(it)
+            }
+            .addOnFailureListener {
+                //process failure
+                Toast.makeText(this, "Failed to Process Image: $it", Toast.LENGTH_SHORT)
+                    .show()
+            }
+
+        Log.i(TAG, "Image Processing Result: $result")
+
+
+        return macros
+    }
+
+    private fun processFireBaseText(fText: FirebaseVisionText) : Array<Int> {
+
+        val calPattern = Pattern.compile("^(Calories: )(%d)?$")
+
+        for (tb in fText.textBlocks) {
+            //get text in a block
+            tb.text
+            //read line by line
+            for (l in tb.lines) {
+                val matcher: Matcher = calPattern.matcher(l.text)
+                if(matcher.find()){
+
+                }
+
+            }
+        }
+
+        return arrayOf(0)
+
+    }
+
+    companion object{
+        const val TAG = "SeeFood-MyDietActivity"
+    }
+
+
 }
