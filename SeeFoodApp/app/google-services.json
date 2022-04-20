@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "862230012363",
+    "project_id": "seefoodimageprocessing",
+    "storage_bucket": "seefoodimageprocessing.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862230012363:android:642802b7cf81f5740d964e",
+        "android_client_info": {
+          "package_name": "com.example.seefoodapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "862230012363-vu2jdmnbnsiisf9m2mk50vrregal0hm0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuH5I-1CWO_96cWY3a-w02BGVdyQbawok"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "862230012363-vu2jdmnbnsiisf9m2mk50vrregal0hm0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
