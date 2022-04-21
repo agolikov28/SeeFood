@@ -1,8 +1,6 @@
 package com.example.seefoodapp
 
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.Paint
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.Editable
@@ -10,6 +8,7 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Switch
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -25,11 +24,16 @@ class NewDietActivity : AppCompatActivity() {
     private val BMI_OBESE = "Obese"
 
     private lateinit var mName: EditText
+    private lateinit var mGender: Switch
+    private lateinit var mAge: EditText
     private lateinit var mWeight: EditText
     private lateinit var mFeet: EditText
     private lateinit var mInches: EditText
     private lateinit var mBMI: TextView
     private lateinit var mClass: View
+    private lateinit var mCalories: TextView
+    private lateinit var mProteins: TextView
+    private lateinit var mCarbs: TextView
 
     private lateinit var saveButton: Button
 
@@ -39,6 +43,8 @@ class NewDietActivity : AppCompatActivity() {
 
         saveButton = findViewById<Button>(R.id.saveBtn)
         mName = findViewById<EditText>(R.id.nameText)
+        mGender = findViewById<Switch>(R.id.genderSwitch)
+        mAge = findViewById<EditText>(R.id.ageText)
         mWeight = findViewById<EditText>(R.id.weightText)
         mFeet = findViewById<EditText>(R.id.heightFeet)
         mInches = findViewById<EditText>(R.id.heightInches)
@@ -46,6 +52,9 @@ class NewDietActivity : AppCompatActivity() {
         mClass = findViewById<View>(R.id.bmiClass)
         mClass.background = shape
         mBMI = findViewById<TextView>(R.id.bmiResult)
+        mCalories = findViewById<TextView>(R.id.caloriesText)
+        mProteins = findViewById<TextView>(R.id.proteinsText)
+        mCarbs = findViewById<TextView>(R.id.carbsText)
 
         val textWatcher: TextWatcher = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence,start: Int,count: Int,after: Int) {}
@@ -53,13 +62,33 @@ class NewDietActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable) {
                 if ((s.length in 2..3) || (s.contains('.') && s.length in 2..5)) {
 
-                    //computes users BMI
+                    //computes users BMI and stores into userBMI
                     val userBMI = calculateBMIImperial(
                         mFeet.text.toString().toDouble(),
-                        mInches.text.toString().toDouble(), mWeight.text.toString().toDouble()
+                        mInches.text.toString().toDouble(),
+                        mWeight.text.toString().toDouble()
                     )
 
-                    //sets color of BMI range (maybe explain colors in infotip)
+                    // SET GENDER VALUE FROM SWITCH
+                    var gender = if (mGender.isChecked) {
+                        1
+                    } else {
+                        0
+                    }
+
+                    val userMacros = calculateMacrosImperial(
+                        mAge.text.toString().toInt(),
+                        gender,
+                        mFeet.text.toString().toDouble(),
+                        mInches.text.toString().toDouble(),
+                        mWeight.text.toString().toDouble()
+                    )
+
+                    mCalories.text = userMacros.toInt().toString().plus(" calories")
+                    mProteins.text = ((userMacros * 0.4) / 4.0).toInt().toString().plus(" grams")
+                    mCarbs.text = ((userMacros * 0.3) / 4.0).toInt().toString().plus(" grams")
+
+                    // sets color of BMI range (maybe explain colors in infotip)
                     val bmiClass = classifyBMI(userBMI)
                     if (bmiClass == BMI_UNDERWEIGHT) {
                         mClass.setBackgroundColor(applicationContext.resources.getColor(R.color.bmiBlue))
@@ -71,9 +100,9 @@ class NewDietActivity : AppCompatActivity() {
                         //BMI_OBESE
                         mClass.setBackgroundColor(applicationContext.resources.getColor(R.color.bmiOrange))
                     }
-                    mBMI.setText(
-                        userBMI.toInt().toString()
-                    ) // set TextView text to Text inside EditText
+
+                    // set TextView text to BMI result
+                    mBMI.text = userBMI.toInt().toString()
                 }
             }
         }
@@ -127,6 +156,25 @@ class NewDietActivity : AppCompatActivity() {
             BMI_OVERWEIGHT
         } else {
             BMI_OBESE
+        }
+    }
+
+    // TODO: SHOULD ADD *ACTIVITY LEVEL* AND *GOAL*
+    // Calculates Macros based on imperial system
+    fun calculateMacrosImperial(age: Int, gender: Int, heightFeet: Double, heightInches: Double, weightLbs: Double): Double {
+        // Calculate macros for women
+        if(gender == 1) {
+            val activityLevel = 1.55
+            val totalHeightInCm = (heightFeet * INCHES_IN_FOOT + heightInches) * 2.54
+            val BMR = 655.1 + (9.563 * (weightLbs * 0.453592)) + (1.85 * totalHeightInCm) - (4.676 * age)
+            return BMR * activityLevel
+        }
+        // Calculate macros for men
+        else {
+            val activityLevel = 1.55
+            val totalHeightInCm = (heightFeet * INCHES_IN_FOOT + heightInches) * 2.54
+            val BMR = 66.5 + (13.75 * (weightLbs * 0.453592)) + (5.003 * totalHeightInCm) - (6.75 * age)
+            return BMR * activityLevel
         }
     }
 
