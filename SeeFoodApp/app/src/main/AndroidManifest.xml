@@ -3,6 +3,9 @@
     package="com.example.seefoodapp">
 
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
 
         android:allowBackup="true"
@@ -32,5 +35,13 @@
             android:label="New Diet Activity" />
 
     </application>
+
+    <meta-data
+        android:name="com.google.firebase.ml.vision.DEPENDENCIES"
+        android:value="label" />
+    <!-- To use multiple models: android:value="label,model2,model3" -->
+    <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="ocr"/>
+    <!-- To use multiple models: android:value="ocr,model2,model3" -->
+
 
 </manifest>

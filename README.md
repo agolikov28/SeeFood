@@ -38,7 +38,10 @@ Stack Overflow Android Scanners: https://stackoverflow.com/questions/37287910/ho
 
 Camera Scanner: https://v4all123.blogspot.com/2018/03/simple-example-of-ocrreader-in-android.html
 
-Scan Fron Images: https://www.zoftino.com/extracting-text-from-images-android
+Scan From Images: https://www.zoftino.com/extracting-text-from-images-android
+
+Using Firebase: https://developers.google.com/ml-kit/vision/text-recognition/v2/android
+
 
 ### Data Management:
 
