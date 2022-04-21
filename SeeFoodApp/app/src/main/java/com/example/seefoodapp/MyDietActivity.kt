@@ -27,27 +27,22 @@ class MyDietActivity : AppCompatActivity() {
     private lateinit var carbBar: ProgressBar
     private lateinit var proteinBar: ProgressBar
     private lateinit var fatBar: ProgressBar
-    private lateinit var calorieBar: ProgressBar
     private var targetCarbs = 80
     private var targetProtein = 35
     private var targetFat = 15
-    private var targetCalories = 1600
     private var currCarbs = 0
     private var currProtein = 0
     private var currFat = 0
-    private var currCalories = 0
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.my_diet_activity)
         scanButton = findViewById(R.id.newLabelBtn)
         clearDietButton = findViewById(R.id.clearDietBtn)
-        statsButton = findViewById(R.id.statsBtn)
-        carbBar = findViewById(R.id.macro1Bar)
-        proteinBar = findViewById(R.id.macro2Bar)
-        fatBar = findViewById(R.id.macro3Bar)
-        calorieBar = findViewById(R.id.calorieBar)
+        statsButton = findViewById(R.id.editBtn)
+        carbBar = findViewById(R.id.carbBar)
+        proteinBar = findViewById(R.id.proteinBar)
+        fatBar = findViewById(R.id.fatBar)
 
         scanButton.setOnClickListener(){
             scanLabel()
@@ -86,7 +81,6 @@ class MyDietActivity : AppCompatActivity() {
         currCarbs = 0
         currProtein = 0
         currFat = 0
-        currCalories = 0
         updateBars()
     }
 
@@ -98,13 +92,10 @@ class MyDietActivity : AppCompatActivity() {
         carbBar.max = targetCarbs
         proteinBar.max = targetProtein
         fatBar.max = targetFat
-        calorieBar.max = targetCalories
 
         carbBar.setProgress(currCarbs, true)
         proteinBar.setProgress(currProtein, true)
         fatBar.setProgress(currFat, true)
-        calorieBar.setProgress(currCalories, true)
-
     }
 
     private fun processImage(bitmap: Bitmap) : Task<Text> {
