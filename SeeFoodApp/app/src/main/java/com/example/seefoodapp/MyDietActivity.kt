@@ -3,17 +3,20 @@ package com.example.seefoodapp
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.Task
-import com.google.firebase.ml.vision.FirebaseVision
-import com.google.firebase.ml.vision.common.FirebaseVisionImage
-import com.google.firebase.ml.vision.text.FirebaseVisionText
+import com.google.mlkit.vision.common.InputImage
+import com.google.mlkit.vision.text.Text
+import com.google.mlkit.vision.text.TextRecognition
+import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 import java.util.regex.Matcher
 import java.util.regex.Pattern
+import kotlin.coroutines.CoroutineContext
 
 
 class MyDietActivity : AppCompatActivity() {
@@ -62,21 +65,21 @@ class MyDietActivity : AppCompatActivity() {
         updateBars()
     }
 
-
-    private fun scanLabel(){
+    private fun scanLabel() {
 
         val bitmap: Bitmap = BitmapFactory.decodeResource(resources, R.drawable.sample_food_label)
-        val macros = processImage(bitmap)
+        val task = processImage(bitmap)
+        task.addOnCompleteListener {
+            val macros = processFireBaseText(task.result)
+            var gFat = macros[0]
+            var gCarb = macros[1]
+            var gProtein = macros[2]
 
-        Log.i(TAG, "Macros in scanLabel Method: $macros")
-        var gCarb = 35
-        var gProtein = 8
-        var gFat = 3
-
-        currCarbs += gCarb
-        currProtein += gProtein
-        currFat += gFat
-
+            currCarbs += gCarb
+            currProtein += gProtein
+            currFat += gFat
+            updateBars()
+        }
     }
 
     private fun clearDiet(){
@@ -102,52 +105,70 @@ class MyDietActivity : AppCompatActivity() {
         fatBar.setProgress(currFat, true)
         calorieBar.setProgress(currCalories, true)
 
-
     }
 
-    private fun processImage(bitmap: Bitmap) : Array<Int> {
-        var macros : Array<Int> = arrayOf(0)
-        val image = FirebaseVisionImage.fromBitmap(bitmap)
-        val textRecognizer = FirebaseVision.getInstance().onDeviceTextRecognizer
+    private fun processImage(bitmap: Bitmap) : Task<Text> {
+        val image = InputImage.fromBitmap(bitmap, 0)
+        val textRecognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
 
-        val result: Task<FirebaseVisionText> = textRecognizer.processImage(image)
+        val result = textRecognizer.process(image)
             .addOnSuccessListener {
                 //process success
                 Toast.makeText(this, "Image Processed Successfully", Toast.LENGTH_SHORT)
                     .show()
-                macros = processFireBaseText(it)
             }
             .addOnFailureListener {
                 //process failure
-                Toast.makeText(this, "Failed to Process Image: $it", Toast.LENGTH_SHORT)
+                Toast.makeText(this, "${it.localizedMessage}", Toast.LENGTH_SHORT)
                     .show()
+                Log.i(TAG, "Image Processing Result: ${it.localizedMessage}")
             }
 
-        Log.i(TAG, "Image Processing Result: $result")
+        return result
 
-
-        return macros
     }
 
-    private fun processFireBaseText(fText: FirebaseVisionText) : Array<Int> {
+    private fun processFireBaseText(fText: Text): Array<Int> {
 
-        val calPattern = Pattern.compile("^(Calories: )(%d)?$")
+        val fatPattern = Pattern.compile("Total Fat (\\d+)g")
+        var fat = ""
+        val carbPattern = Pattern.compile("Total Carbohydrate (\\d+)g")
+        var carb = ""
+        val proteinPattern = Pattern.compile("Protein (\\d+)g")
+        var protein = ""
+
+        Log.i(TAG, "Text: ${fText.text}}")
 
         for (tb in fText.textBlocks) {
             //get text in a block
-            tb.text
             //read line by line
             for (l in tb.lines) {
-                val matcher: Matcher = calPattern.matcher(l.text)
-                if(matcher.find()){
+                val fMatcher: Matcher = fatPattern.matcher(l.text)
+                val cMatcher: Matcher = carbPattern.matcher(l.text)
+                val pMatcher: Matcher = proteinPattern.matcher(l.text)
 
+                when {
+                    fMatcher.find() -> {
+                        fat = fMatcher.group(1)
+                        Log.i(TAG, "Fat: $fat")
+                    }
+                    cMatcher.find() -> {
+                        carb = cMatcher.group(1)
+                        Log.i(TAG, "Carbohydrates: $carb")
+                    }
+                    pMatcher.find() -> {
+                        protein = pMatcher.group(1)
+                        Log.i(TAG, "Protein: $protein")
+                    }
                 }
-
             }
         }
 
-        return arrayOf(0)
+        val iFat = fat.toInt()
+        val iCarb = carb.toInt()
+        val iProtein = protein.toInt()
 
+        return arrayOf(iFat, iCarb, iProtein)
     }
 
     companion object{
