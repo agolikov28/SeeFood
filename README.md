@@ -40,7 +40,7 @@ Camera Scanner: https://v4all123.blogspot.com/2018/03/simple-example-of-ocrreade
 
 Scan From Images: https://www.zoftino.com/extracting-text-from-images-android
 
-Using Firebase: https://firebase.google.com/docs/ml-kit/android/recognize-text#kotlin+ktx_2
+Using Firebase: https://developers.google.com/ml-kit/vision/text-recognition/v2/android
 
 
 ### Data Management:
