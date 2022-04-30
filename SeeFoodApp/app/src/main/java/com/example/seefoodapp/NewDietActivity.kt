@@ -6,10 +6,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Switch
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -34,6 +31,8 @@ class NewDietActivity : AppCompatActivity() {
     private lateinit var mCalories: TextView
     private lateinit var mProteins: TextView
     private lateinit var mCarbs: TextView
+    private lateinit var mFats: TextView
+    private lateinit var mActivityLevel: RadioGroup
 
     private lateinit var saveButton: Button
 
@@ -55,6 +54,8 @@ class NewDietActivity : AppCompatActivity() {
         mCalories = findViewById<TextView>(R.id.caloriesText)
         mProteins = findViewById<TextView>(R.id.proteinsText)
         mCarbs = findViewById<TextView>(R.id.carbsText)
+        mFats = findViewById<TextView>(R.id.fatsText)
+        mActivityLevel = findViewById(R.id.activityGroup)
 
         val textWatcher: TextWatcher = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence,start: Int,count: Int,after: Int) {}
@@ -76,17 +77,32 @@ class NewDietActivity : AppCompatActivity() {
                         0
                     }
 
+                    // SET ACTIVITY LEVEL VALUE FROM RADIOGROUP
+                    val activityId = mActivityLevel.checkedRadioButtonId
+                    var level = 0.0
+                    if (activityId == R.id.lowButton) {
+                        level = 1.2
+                    }
+                    else if (activityId == R.id.mediumButton) {
+                        level = 1.55
+                    }
+                    else {
+                        level = 1.725
+                    }
+
                     val userMacros = calculateMacrosImperial(
                         mAge.text.toString().toInt(),
                         gender,
                         mFeet.text.toString().toDouble(),
                         mInches.text.toString().toDouble(),
-                        mWeight.text.toString().toDouble()
+                        mWeight.text.toString().toDouble(),
+                        level
                     )
 
-                    mCalories.text = userMacros.toInt().toString().plus(" calories")
-                    mProteins.text = ((userMacros * 0.4) / 4.0).toInt().toString().plus(" grams")
-                    mCarbs.text = ((userMacros * 0.3) / 4.0).toInt().toString().plus(" grams")
+                    mCalories.text = userMacros.toInt().toString().plus(" cals")
+                    mProteins.text = ((userMacros * 0.4) / 4.0).toInt().toString().plus("g")
+                    mCarbs.text = ((userMacros * 0.3) / 4.0).toInt().toString().plus("g")
+                    mFats.text = ((userMacros * 0.3) / 4.0).toInt().toString().plus("g")
 
                     // sets color of BMI range (maybe explain colors in infotip)
                     val bmiClass = classifyBMI(userBMI)
@@ -159,22 +175,20 @@ class NewDietActivity : AppCompatActivity() {
         }
     }
 
-    // TODO: SHOULD ADD *ACTIVITY LEVEL* AND *GOAL*
+    // TODO: SHOULD ADD *ACTIVITY LEVEL*
     // Calculates Macros based on imperial system
-    fun calculateMacrosImperial(age: Int, gender: Int, heightFeet: Double, heightInches: Double, weightLbs: Double): Double {
+    fun calculateMacrosImperial(age: Int, gender: Int, heightFeet: Double, heightInches: Double, weightLbs: Double, activityLevel: Double): Double {
         // Calculate macros for women
         if(gender == 1) {
-            val activityLevel = 1.55
             val totalHeightInCm = (heightFeet * INCHES_IN_FOOT + heightInches) * 2.54
             val BMR = 655.1 + (9.563 * (weightLbs * 0.453592)) + (1.85 * totalHeightInCm) - (4.676 * age)
-            return BMR * activityLevel
+            return (BMR * activityLevel)
         }
         // Calculate macros for men
         else {
-            val activityLevel = 1.55
             val totalHeightInCm = (heightFeet * INCHES_IN_FOOT + heightInches) * 2.54
             val BMR = 66.5 + (13.75 * (weightLbs * 0.453592)) + (5.003 * totalHeightInCm) - (6.75 * age)
-            return BMR * activityLevel
+            return (BMR * activityLevel)
         }
     }
 
