@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/fullnewdiet"
+        android:src="@drawable/fullnewdietlonger"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -31,16 +31,16 @@
         android:shadowDx="4"
         android:shadowDy="4"
         android:shadowRadius="2"
-        android:text="NAME OF DIET:"
+        android:text="DIET NAME:"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.17" />
 
     <TextView
         android:id="@+id/genderTitle"
@@ -52,16 +52,16 @@
         android:shadowDx="4"
         android:shadowDy="4"
         android:shadowRadius="2"
-        android:text="ENTER GENDER:"
+        android:text="GENDER:"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.131"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32" />
+        app:layout_constraintVertical_bias="0.24" />
 
     <TextView
         android:id="@+id/ageTitle"
@@ -73,16 +73,16 @@
         android:shadowDx="4"
         android:shadowDy="4"
         android:shadowRadius="2"
-        android:text="ENTER AGE:"
+        android:text="AGE:"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintHorizontal_bias="0.235"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39" />
+        app:layout_constraintVertical_bias="0.31" />
 
     <EditText
         android:id="@+id/nameText"
@@ -90,13 +90,14 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/nameTitle"
         android:layout_marginStart="236dp"
+        android:paddingLeft="3dp"
         android:layout_toRightOf="@+id/nameTitle"
         android:background="@color/white"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.252">
+        app:layout_constraintVertical_bias="0.172">
 
         <requestFocus />
     </EditText>
@@ -111,16 +112,16 @@
         android:shadowDx="4"
         android:shadowDy="4"
         android:shadowRadius="2"
-        android:text="ENTER HEIGHT:"
+        android:text="HEIGHT:"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.126"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.46" />
+        app:layout_constraintVertical_bias="0.38" />
 
     <EditText
         android:id="@+id/heightFeet"
@@ -130,12 +131,13 @@
         android:layout_marginStart="228dp"
         android:layout_toRightOf="@+id/heightTitle"
         android:background="@color/white"
+        android:paddingLeft="3dp"
         android:ems="2"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.461"
+        app:layout_constraintVertical_bias="0.38"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck">
 
         <requestFocus />
@@ -149,12 +151,13 @@
         android:layout_marginStart="236dp"
         android:layout_toRightOf="@+id/heightTitle"
         android:background="@color/white"
+        android:paddingLeft="3dp"
         android:ems="2"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.392"
+        app:layout_constraintVertical_bias="0.312"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck">
 
         <requestFocus />
@@ -176,10 +179,10 @@
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.739"
+        app:layout_constraintHorizontal_bias="0.728"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.463" />
+        app:layout_constraintVertical_bias="0.381" />
 
     <EditText
         android:id="@+id/heightInches"
@@ -189,12 +192,13 @@
         android:layout_marginStart="300dp"
         android:layout_toRightOf="@+id/heightTitle"
         android:background="@color/white"
+        android:paddingLeft="3dp"
         android:ems="2"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.461">
+        app:layout_constraintVertical_bias="0.38">
 
         <requestFocus />
     </EditText>
@@ -218,7 +222,7 @@
         app:layout_constraintHorizontal_bias="0.921"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.463" />
+        app:layout_constraintVertical_bias="0.381" />
 
 
     <TextView
@@ -231,16 +235,55 @@
         android:shadowDx="4"
         android:shadowDy="4"
         android:shadowRadius="2"
-        android:text="ENTER WEIGHT:"
+        android:text="WEIGHT:"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="23sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45" />
+
+    <TextView
+        android:id="@+id/activityTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rocko_bold"
+        android:letterSpacing="0.03"
+        android:shadowColor="@color/shadowGreen"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="2"
+        android:text="ACTIVITY LEVEL:"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.129"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.53" />
+        app:layout_constraintVertical_bias="0.52" />
+
+    <ImageButton
+        android:id="@+id/infoButton"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="5dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/jean_victor_balin_info_green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.552"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.51" />
 
     <EditText
         android:id="@+id/weightText"
@@ -248,13 +291,14 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/weightTitle"
         android:layout_marginStart="224dp"
+        android:paddingLeft="3dp"
         android:layout_toRightOf="@+id/weightTitle"
         android:background="@color/white"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.530">
+        app:layout_constraintVertical_bias="0.45">
 
         <requestFocus />
     </EditText>
@@ -278,7 +322,7 @@
         app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.532" />
+        app:layout_constraintVertical_bias="0.452" />
 
     <TextView
         android:id="@+id/bmiText"
@@ -292,6 +336,7 @@
         android:shadowRadius="2"
         android:text="Calculated BMI:"
         android:textAlignment="center"
+        android:visibility="invisible"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -299,23 +344,25 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.59" />
+        app:layout_constraintVertical_bias="0.61" />
 
     <TextView
-        android:background="@drawable/bmi_square"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content" />
+        android:background="@drawable/bmi_square" />
 
     <View
         android:id="@+id/bmiClass"
         android:layout_width="70dp"
         android:layout_height="45dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.655" />
+        app:layout_constraintVertical_bias="0.68" />
 
 
     <TextView
@@ -337,7 +384,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.655" />
+        app:layout_constraintVertical_bias="0.68" />
 
     <Button
         android:id="@+id/saveBtn"
@@ -347,6 +394,7 @@
         android:backgroundTint="@color/white"
         android:fontFamily="@font/rocko_bold"
         android:letterSpacing="0"
+        android:visibility="invisible"
         android:text="SAVE AND CONTINUE"
         android:textColor="@color/lightGreen"
         android:textSize="25sp"
@@ -355,7 +403,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.307" />
+        app:layout_constraintVertical_bias="0.311" />
 
     <Switch
         android:id="@+id/genderSwitch"
@@ -376,7 +424,7 @@
         app:layout_constraintHorizontal_bias="0.729"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32" />
+        app:layout_constraintVertical_bias="0.24" />
 
     <TextView
         android:id="@+id/femaleText"
@@ -397,7 +445,7 @@
         app:layout_constraintHorizontal_bias="0.842"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.329" />
+        app:layout_constraintVertical_bias="0.249" />
 
     <TextView
         android:id="@+id/caloriesText"
@@ -415,10 +463,10 @@
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.40"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.76" />
+        app:layout_constraintVertical_bias="0.8" />
 
     <TextView
         android:id="@+id/proteinsText"
@@ -436,10 +484,10 @@
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.38"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.795" />
+        app:layout_constraintVertical_bias="0.85" />
 
     <TextView
         android:id="@+id/carbsText"
@@ -457,10 +505,31 @@
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.83" />
+        app:layout_constraintVertical_bias="0.8" />
+
+    <TextView
+        android:id="@+id/fatsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rocko_bold"
+        android:letterSpacing="0.03"
+        android:shadowColor="@color/shadowGreen"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="2"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.85" />
 
     <TextView
         android:id="@+id/macrosTitle"
@@ -472,6 +541,7 @@
         android:shadowDx="4"
         android:shadowDy="4"
         android:shadowRadius="2"
+        android:visibility="invisible"
         android:text="Macros per day:"
         android:textAlignment="center"
         android:textColor="@color/white"
@@ -481,7 +551,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.716" />
+        app:layout_constraintVertical_bias="0.75" />
 
     <TextView
         android:id="@+id/caloriesTitle"
@@ -497,12 +567,13 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="17sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.127"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.76" />
+        app:layout_constraintVertical_bias="0.8" />
 
     <TextView
         android:id="@+id/proteinsTitle"
@@ -514,6 +585,7 @@
         android:shadowDx="4"
         android:shadowDy="4"
         android:shadowRadius="2"
+        android:visibility="invisible"
         android:text="Proteins:"
         android:textAlignment="center"
         android:textColor="@color/white"
@@ -523,7 +595,7 @@
         app:layout_constraintHorizontal_bias="0.127"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.795" />
+        app:layout_constraintVertical_bias="0.85" />
 
     <TextView
         android:id="@+id/carbsTitle"
@@ -535,15 +607,131 @@
         android:shadowDx="4"
         android:shadowDy="4"
         android:shadowRadius="2"
+        android:visibility="invisible"
         android:text="Carbs:"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.127"
+        app:layout_constraintHorizontal_bias="0.647"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.83" />
+        app:layout_constraintVertical_bias="0.8" />
+
+    <TextView
+        android:id="@+id/fatsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rocko_bold"
+        android:letterSpacing="0.03"
+        android:shadowColor="@color/shadowGreen"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="2"
+        android:visibility="invisible"
+        android:text="Fats:"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.647"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.85" />
+
+    <RadioGroup
+        android:id="@+id/activityGroup"
+        android:layout_width="153dp"
+        android:layout_height="62dp"
+        android:checkedButton="@+id/lowButton"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.535">
+
+        <RadioButton
+            android:id="@+id/lowButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@android:drawable/btn_radio"
+            android:drawablePadding="-15dp"
+            android:fontFamily="@font/rocko_bold"
+            android:gravity="center"
+            android:letterSpacing="0.03"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:shadowColor="@color/shadowGreen"
+            android:shadowDx="4"
+            android:shadowDy="4"
+            android:shadowRadius="2"
+            android:text="Low"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/mediumButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight=".75"
+            android:button="@null"
+            android:drawableTop="@android:drawable/btn_radio"
+            android:drawablePadding="-15dp"
+            android:fontFamily="@font/rocko_bold"
+            android:gravity="center"
+            android:letterSpacing="0.03"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:shadowColor="@color/shadowGreen"
+            android:shadowDx="4"
+            android:shadowDy="4"
+            android:shadowRadius="2"
+            android:text="Medium"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/highButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@android:drawable/btn_radio"
+            android:drawablePadding="-15dp"
+            android:fontFamily="@font/rocko_bold"
+            android:gravity="center"
+            android:letterSpacing="0.03"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:shadowColor="@color/shadowGreen"
+            android:shadowDx="4"
+            android:shadowDy="4"
+            android:shadowRadius="2"
+            android:text="High"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="167dp"
+        android:layout_height="62dp"
+        android:text="Calculate Macros"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.68" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
