@@ -44,7 +44,7 @@ class NewDietActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_diet_activity)
 
-        sharedpreferences = this@NewDietActivity.getPreferences(Context.MODE_PRIVATE);
+        sharedpreferences = getSharedPreferences("shared_preferences", Context.MODE_PRIVATE)
 
         saveButton = findViewById<Button>(R.id.saveBtn)
         mName = findViewById<EditText>(R.id.nameText)
@@ -224,7 +224,7 @@ class NewDietActivity : AppCompatActivity() {
             editor.putInt("proteins", ((userMacros * 0.4) / 4.0).toInt())
             editor.putInt("carbs", ((userMacros * 0.3) / 4.0).toInt())
             editor.putInt("fats", ((userMacros * 0.3) / 4.0).toInt())
-            editor.apply()
+            editor.commit()
 
             val myDietIntent = Intent(this, MyDietActivity::class.java)
             myDietIntent.putExtra("nameOfDiet", mName.text.toString())

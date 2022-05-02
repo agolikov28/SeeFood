@@ -1,7 +1,9 @@
 package com.example.seefoodapp
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
@@ -36,10 +38,11 @@ class MyDietActivity : AppCompatActivity() {
     private lateinit var calorieBar: ProgressBar
     private lateinit var image: InputImage
     private lateinit var startForResult : ActivityResultLauncher<Intent>
-    private var targetCarbs = 80
-    private var targetProtein = 35
-    private var targetFat = 15
-    private var targetCalories = 1500
+    private lateinit var sharedpreferences: SharedPreferences
+    private var targetCarbs = 40
+    private var targetProtein = 40
+    private var targetFat = 40
+    private var targetCalories = 40
     private var currCalories = 0
     private var currCarbs = 0
     private var currProtein = 0
@@ -56,6 +59,12 @@ class MyDietActivity : AppCompatActivity() {
         proteinBar = findViewById(R.id.proteinBar)
         calorieBar = findViewById(R.id.calorieBar)
         fatBar = findViewById(R.id.fatBar)
+
+        sharedpreferences = getSharedPreferences("shared_preferences", Context.MODE_PRIVATE)
+        targetCarbs = sharedpreferences.getInt("carbs", 0)
+        targetProtein = sharedpreferences.getInt("proteins", 0)
+        targetCalories = sharedpreferences.getInt("calories", 0)
+        targetFat = sharedpreferences.getInt("fats", 0)
 
         startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult())
         { result: ActivityResult ->
