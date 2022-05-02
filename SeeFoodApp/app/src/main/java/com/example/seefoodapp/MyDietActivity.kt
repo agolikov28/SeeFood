@@ -93,6 +93,7 @@ class MyDietActivity : AppCompatActivity() {
 
         editBtn.setOnClickListener {
             editStats()
+            updateBars()
         }
 
         updateBars()
@@ -168,6 +169,7 @@ class MyDietActivity : AppCompatActivity() {
             targetCarbs = carbBox.text.toString().toInt()
             targetProtein = proteinBox.text.toString().toInt()
             targetCalories = calorieBox.text.toString().toInt()
+            updateBars()
             Toast.makeText(this, "Saved Successfully", Toast.LENGTH_SHORT).show()
         }
 
@@ -386,7 +388,7 @@ class MyDietActivity : AppCompatActivity() {
                 iCalorie= calorieBox.text.toString().toInt()
                 currCalories += iCalorie
                 updateBars()
-                Toast.makeText(this, "$iProtein Calories Inputted Successfully", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "$iCalorie Calories Inputted Successfully", Toast.LENGTH_SHORT).show()
             }
 
             alert.setNegativeButton(
