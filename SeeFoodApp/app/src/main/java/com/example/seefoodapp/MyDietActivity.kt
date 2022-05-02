@@ -61,10 +61,10 @@ class MyDietActivity : AppCompatActivity() {
         fatBar = findViewById(R.id.fatBar)
 
         sharedpreferences = getSharedPreferences("shared_preferences", Context.MODE_PRIVATE)
-        targetCarbs = sharedpreferences.getInt("carbs", 0)
-        targetProtein = sharedpreferences.getInt("proteins", 0)
-        targetCalories = sharedpreferences.getInt("calories", 0)
-        targetFat = sharedpreferences.getInt("fats", 0)
+        targetCarbs = sharedpreferences.getInt("targetCarbs", 0)
+        targetProtein = sharedpreferences.getInt("targetProteins", 0)
+        targetCalories = sharedpreferences.getInt("targetCalories", 0)
+        targetFat = sharedpreferences.getInt("targetFats", 0)
 
         startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult())
         { result: ActivityResult ->
@@ -106,6 +106,34 @@ class MyDietActivity : AppCompatActivity() {
         }
 
         updateBars()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        currCalories = sharedpreferences.getInt("currCalories", 0)
+        currProtein = sharedpreferences.getInt("currProteins", 0)
+        currCarbs = sharedpreferences.getInt("currCarbs", 0)
+        currFat = sharedpreferences.getInt("currFats", 0)
+        targetCalories = sharedpreferences.getInt("targetCalories", 0)
+        targetProtein = sharedpreferences.getInt("targetProteins", 0)
+        targetCarbs = sharedpreferences.getInt("targetCarbs", 0)
+        targetFat = sharedpreferences.getInt("targetFats", 0)
+        updateBars()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        val editor = sharedpreferences.edit()
+        editor.putInt("currCalories", currCalories)
+        editor.putInt("currProteins", currProtein)
+        editor.putInt("currCarbs", currCarbs)
+        editor.putInt("currFats", currFat)
+        editor.putInt("targetCalories", targetCalories)
+        editor.putInt("targetProteins", targetProtein)
+        editor.putInt("targetCarbs", targetCarbs)
+        editor.putInt("targetFats", targetFat)
+        editor.commit()
+
     }
 
     private fun scanLabel() {
