@@ -36,6 +36,17 @@ class MyDietActivity : AppCompatActivity() {
     private lateinit var proteinBar: ProgressBar
     private lateinit var fatBar: ProgressBar
     private lateinit var calorieBar: ProgressBar
+    private lateinit var carbPercent: TextView
+    private lateinit var proteinPercent: TextView
+    private lateinit var fatPercent: TextView
+    private lateinit var caloriePercent: TextView
+    private lateinit var dietName: TextView
+
+    private lateinit var carbProp: TextView
+    private lateinit var proteinProp: TextView
+    private lateinit var fatProp: TextView
+    private lateinit var calorieProp: TextView
+
     private lateinit var image: InputImage
     private lateinit var startForResult : ActivityResultLauncher<Intent>
     private lateinit var sharedpreferences: SharedPreferences
@@ -60,11 +71,24 @@ class MyDietActivity : AppCompatActivity() {
         calorieBar = findViewById(R.id.calorieBar)
         fatBar = findViewById(R.id.fatBar)
 
+        carbPercent = findViewById(R.id.carbPercent)
+        proteinPercent = findViewById(R.id.proteinPercent)
+        caloriePercent = findViewById(R.id.caloriePercent)
+        fatPercent = findViewById(R.id.fatPercent)
+
         sharedpreferences = getSharedPreferences("shared_preferences", Context.MODE_PRIVATE)
         targetCarbs = sharedpreferences.getInt("targetCarbs", 0)
         targetProtein = sharedpreferences.getInt("targetProteins", 0)
         targetCalories = sharedpreferences.getInt("targetCalories", 0)
         targetFat = sharedpreferences.getInt("targetFats", 0)
+
+        carbProp = findViewById(R.id.carbProp)
+        proteinProp = findViewById(R.id.proteinProp)
+        fatProp = findViewById(R.id.fatProp)
+        calorieProp = findViewById(R.id.calorieProp)
+
+        dietName = findViewById(R.id.dietName)
+        dietName.text = sharedpreferences.getString("nameOfDiet", "My Diet").toString()
 
         startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult())
         { result: ActivityResult ->
@@ -181,6 +205,8 @@ class MyDietActivity : AppCompatActivity() {
         calorieBox.inputType = InputType.TYPE_CLASS_NUMBER
         layout.addView(calorieBox)
 
+
+
         val fatBox = EditText(this)
         fatBox.hint = "Target Grams of Fat"
         fatBox.inputType = InputType.TYPE_CLASS_NUMBER
@@ -231,6 +257,18 @@ class MyDietActivity : AppCompatActivity() {
         proteinBar.setProgress(currProtein, true)
         fatBar.setProgress(currFat, true)
         calorieBar.setProgress(currCalories, true)
+
+        carbPercent.text = (currCarbs * 100/targetCarbs).toString() + "%"
+        proteinPercent.text = (currProtein* 100/targetProtein).toString() + "%"
+        fatPercent.text = (currFat* 100/targetFat).toString() + "%"
+        caloriePercent.text = (currCalories* 100/targetCalories).toString() + "%"
+
+        carbProp.text = currCarbs.toString() + "/" + targetCarbs.toString()
+        proteinProp.text = currProtein.toString() + "/" + targetProtein.toString()
+        fatProp.text = currFat.toString() + "/" + targetFat.toString()
+        calorieProp.text = currCalories.toString() + "/" + targetCalories.toString()
+
+
     }
 
     private fun processImage(image: InputImage) : Task<Text> {
