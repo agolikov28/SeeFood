@@ -37,6 +37,7 @@ class NewDietActivity : AppCompatActivity() {
     private lateinit var mFats: TextView
     private lateinit var mActivityLevel: RadioGroup
     private lateinit var mInfoButton: ImageButton
+    private lateinit var clearButton: Button
 
     private lateinit var saveButton: Button
 
@@ -47,6 +48,7 @@ class NewDietActivity : AppCompatActivity() {
         sharedpreferences = this@NewDietActivity.getPreferences(Context.MODE_PRIVATE);
 
         saveButton = findViewById<Button>(R.id.saveBtn)
+        clearButton = findViewById(R.id.clearBtn)
         mName = findViewById<EditText>(R.id.nameText)
         mGender = findViewById<Switch>(R.id.genderSwitch)
         mAge = findViewById<EditText>(R.id.ageText)
@@ -69,7 +71,6 @@ class NewDietActivity : AppCompatActivity() {
         val prosText = findViewById<TextView>(R.id.proteinsTitle)
         val carbsText = findViewById<TextView>(R.id.carbsTitle)
         val fatsText = findViewById<TextView>(R.id.fatsTitle)
-        val saveBtn = findViewById<Button>(R.id.saveBtn)
 
         mInfoButton = findViewById(R.id.infoButton)
         mInfoButton.setOnClickListener() {
@@ -109,7 +110,20 @@ class NewDietActivity : AppCompatActivity() {
                 showHide(prosText)
                 showHide(carbsText)
                 showHide(fatsText)
-                showHide(saveBtn)
+                showHide(saveButton)
+                showHide(clearButton)
+                showHide(mCalories)
+                showHide(mFats)
+                showHide(mCarbs)
+                showHide(mProteins)
+
+                mName.isEnabled = false
+                mGender.isEnabled = false
+                mAge.isEnabled = false
+                mFeet.isEnabled = false
+                mInches.isEnabled = false
+                mWeight.isEnabled = false
+                mActivityLevel.isEnabled = false
 
                 //computes users BMI and stores into userBMI
                 val userBMI = calculateBMIImperial(
@@ -187,6 +201,31 @@ class NewDietActivity : AppCompatActivity() {
                 override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int){}
                 override fun afterTextChanged(s: Editable){}
             })
+        }
+
+        clearButton.setOnClickListener() {
+            mName.text.clear()
+            mAge.text.clear()
+            mWeight.text.clear()
+            mFeet.text.clear()
+            mInches.text.clear()
+            mActivityLevel.check(R.id.lowButton)
+            mGender.isChecked = false
+
+            showHide(calculateBtn)
+            showHide(cBMI)
+            showHide(bBMI)
+            showHide(macrosText)
+            showHide(calsText)
+            showHide(prosText)
+            showHide(carbsText)
+            showHide(fatsText)
+            showHide(mCalories)
+            showHide(mFats)
+            showHide(mCarbs)
+            showHide(mProteins)
+            showHide(saveButton)
+            showHide(clearButton)
         }
 
         //opens up user diet when they click "save and continue"
