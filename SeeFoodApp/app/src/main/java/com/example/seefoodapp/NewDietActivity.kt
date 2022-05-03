@@ -71,6 +71,9 @@ class NewDietActivity : AppCompatActivity() {
         val prosText = findViewById<TextView>(R.id.proteinsTitle)
         val carbsText = findViewById<TextView>(R.id.carbsTitle)
         val fatsText = findViewById<TextView>(R.id.fatsTitle)
+        val lowBtn = findViewById<RadioButton>(R.id.lowButton)
+        val medBtn = findViewById<RadioButton>(R.id.mediumButton)
+        val highBtn = findViewById<RadioButton>(R.id.highButton)
 
         mInfoButton = findViewById(R.id.infoButton)
         mInfoButton.setOnClickListener() {
@@ -123,7 +126,9 @@ class NewDietActivity : AppCompatActivity() {
                 mFeet.isEnabled = false
                 mInches.isEnabled = false
                 mWeight.isEnabled = false
-                mActivityLevel.isEnabled = false
+                lowBtn.isEnabled = false
+                medBtn.isEnabled = false
+                highBtn.isEnabled = false
 
                 //computes users BMI and stores into userBMI
                 val userBMI = calculateBMIImperial(
@@ -226,6 +231,16 @@ class NewDietActivity : AppCompatActivity() {
             showHide(mProteins)
             showHide(saveButton)
             showHide(clearButton)
+
+            mName.isEnabled = true
+            mGender.isEnabled = true
+            mAge.isEnabled = true
+            mFeet.isEnabled = true
+            mInches.isEnabled = true
+            mWeight.isEnabled = true
+            lowBtn.isEnabled = true
+            medBtn.isEnabled = true
+            highBtn.isEnabled = true
         }
 
         //opens up user diet when they click "save and continue"
