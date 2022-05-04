@@ -166,7 +166,7 @@ class NewDietActivity : AppCompatActivity() {
                 mCalories.text = userMacros.toInt().toString().plus(" cals")
                 mProteins.text = ((userMacros * 0.4) / 4.0).toInt().toString().plus("g")
                 mCarbs.text = ((userMacros * 0.3) / 4.0).toInt().toString().plus("g")
-                mFats.text = ((userMacros * 0.3) / 4.0).toInt().toString().plus("g")
+                mFats.text = (userMacros * 0.03).toInt().toString().plus("g")
 
                 // sets color of BMI range (maybe explain colors in infotip)
                 val bmiClass = classifyBMI(userBMI)
