@@ -41,6 +41,8 @@ class MyDietActivity : AppCompatActivity() {
     private lateinit var fatPercent: TextView
     private lateinit var caloriePercent: TextView
     private lateinit var dietName: TextView
+    private lateinit var dietDate: TextView
+
 
     private lateinit var carbProp: TextView
     private lateinit var proteinProp: TextView
@@ -89,6 +91,7 @@ class MyDietActivity : AppCompatActivity() {
 
         dietName = findViewById(R.id.dietName)
         dietName.text = sharedpreferences.getString("nameOfDiet", "My Diet").toString()
+
 
         startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult())
         { result: ActivityResult ->
@@ -267,6 +270,19 @@ class MyDietActivity : AppCompatActivity() {
         proteinProp.text = currProtein.toString() + "/" + targetProtein.toString()
         fatProp.text = currFat.toString() + "/" + targetFat.toString()
         calorieProp.text = currCalories.toString() + "/" + targetCalories.toString()
+
+        if((carbPercent.text).equals("100%")){
+            carbBar.setBackgroundColor(applicationContext.resources.getColor(R.color.shadowGreen));
+        }
+        if((proteinPercent.text).equals("100%")){
+            proteinBar.setBackgroundColor(applicationContext.resources.getColor(R.color.shadowGreen));
+        }
+        if((fatPercent.text).equals("100%")){
+            fatBar.setBackgroundColor(applicationContext.resources.getColor(R.color.shadowGreen));
+        }
+        if((caloriePercent.text).equals("100%")){
+            calorieBar.setBackgroundColor(applicationContext.resources.getColor(R.color.shadowGreen));
+        }
 
 
     }

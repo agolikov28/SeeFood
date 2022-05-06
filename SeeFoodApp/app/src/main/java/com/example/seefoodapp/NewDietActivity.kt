@@ -10,6 +10,8 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class NewDietActivity : AppCompatActivity() {
@@ -37,6 +39,8 @@ class NewDietActivity : AppCompatActivity() {
     private lateinit var mFats: TextView
     private lateinit var mActivityLevel: RadioGroup
     private lateinit var mInfoButton: ImageButton
+    private lateinit var mInfoButton2: ImageButton
+
     private lateinit var clearButton: Button
 
     private lateinit var saveButton: Button
@@ -78,6 +82,11 @@ class NewDietActivity : AppCompatActivity() {
         mInfoButton = findViewById(R.id.infoButton)
         mInfoButton.setOnClickListener() {
             Toast.makeText(applicationContext,"How many times do you exercise a week? Low: 0-1 Medium: 3-4 High: 5-7",Toast.LENGTH_LONG).show()
+        }
+
+        mInfoButton2 = findViewById(R.id.infoButton2)
+        mInfoButton2.setOnClickListener() {
+            Toast.makeText(applicationContext,"This is the daily recommend intake, based on your BMI",Toast.LENGTH_LONG).show()
         }
 
         val calculateBtn = findViewById<Button>(R.id.calculateButton)
@@ -299,6 +308,10 @@ class NewDietActivity : AppCompatActivity() {
             myDietIntent.putExtra("currProteins", 0)
             myDietIntent.putExtra("currCarbs", 0)
             myDietIntent.putExtra("currFats", 0)
+            val c: Date = Calendar.getInstance().getTime()
+            val df = SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault())
+            var formattedDate: String? = df.format(c)
+            myDietIntent.putExtra("dateOfDiet", formattedDate.toString())
             startActivity(myDietIntent)
         }
     }
