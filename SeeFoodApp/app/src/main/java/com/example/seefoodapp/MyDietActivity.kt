@@ -4,8 +4,10 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.res.ColorStateList
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -18,7 +20,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.Task
-import com.google.android.material.textfield.TextInputLayout
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.Text
 import com.google.mlkit.vision.text.TextRecognition
@@ -92,6 +93,8 @@ class MyDietActivity : AppCompatActivity() {
         dietName = findViewById(R.id.dietName)
         dietName.text = sharedpreferences.getString("nameOfDiet", "My Diet").toString()
 
+        dietDate = findViewById(R.id.dateText)
+        dietDate.text = sharedpreferences.getString("date", "MM-dd-yyyy").toString()
 
         startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult())
         { result: ActivityResult ->
@@ -271,17 +274,17 @@ class MyDietActivity : AppCompatActivity() {
         fatProp.text = currFat.toString() + "/" + targetFat.toString()
         calorieProp.text = currCalories.toString() + "/" + targetCalories.toString()
 
-        if((carbPercent.text).equals("100%")){
-            carbBar.setBackgroundColor(applicationContext.resources.getColor(R.color.shadowGreen));
+        if((currCarbs/targetCarbs) >= 1){
+            carbBar.progressTintList = ColorStateList.valueOf(applicationContext.resources.getColor(R.color.shadowGreen))
         }
-        if((proteinPercent.text).equals("100%")){
-            proteinBar.setBackgroundColor(applicationContext.resources.getColor(R.color.shadowGreen));
+        if((currProtein/targetProtein) >= 1){
+            proteinBar.progressTintList = ColorStateList.valueOf(applicationContext.resources.getColor(R.color.shadowGreen))
         }
-        if((fatPercent.text).equals("100%")){
-            fatBar.setBackgroundColor(applicationContext.resources.getColor(R.color.shadowGreen));
+        if((currFat/targetFat) >= 1){
+            fatBar.progressTintList = ColorStateList.valueOf(applicationContext.resources.getColor(R.color.shadowGreen))
         }
-        if((caloriePercent.text).equals("100%")){
-            calorieBar.setBackgroundColor(applicationContext.resources.getColor(R.color.shadowGreen));
+        if((currCalories/targetCalories) >= 1){
+            calorieBar.progressTintList = ColorStateList.valueOf(applicationContext.resources.getColor(R.color.shadowGreen))
         }
 
 

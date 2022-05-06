@@ -12,33 +12,32 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/fullmydiet"
+        android:src="@drawable/mydiettoppart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/dietName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/rocko_bold"
+        android:fontFamily="@font/rocko_normal"
         android:letterSpacing="0.03"
-        android:shadowColor="@color/shadowGreen"
-        android:shadowDx="4"
-        android:shadowDy="4"
         android:shadowRadius="2"
-        android:text=""
+        android:text="My Daily Macros"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.21" />
+        app:layout_constraintVertical_bias="0.178" />
 
     <TextView
         android:id="@+id/trackingSince"
@@ -55,7 +54,7 @@
         app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.27" />
+        app:layout_constraintVertical_bias="0.26" />
 
     <TextView
         android:id="@+id/dateText"
@@ -72,7 +71,7 @@
         app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.27" />
+        app:layout_constraintVertical_bias="0.26" />
 
     <Button
         android:id="@+id/newLabelBtn"
@@ -140,7 +139,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.44" />
+        app:layout_constraintVertical_bias="0.42" />
     <TextView
         android:id="@+id/caloriePercent"
         android:layout_width="wrap_content"
@@ -156,13 +155,17 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.444"  />
+        app:layout_constraintVertical_bias="0.426"  />
     <TextView
         android:id="@+id/calorieProp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/rocko_normal"
         android:letterSpacing="0.03"
+        android:shadowColor="@color/darkOrange"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="2"
         android:text=""
         android:textAlignment="center"
         android:textColor="@color/white"
@@ -172,7 +175,7 @@
         app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.444"  />
+        app:layout_constraintVertical_bias="0.426" />
 
     <ProgressBar
         android:id="@+id/carbBar"
@@ -201,7 +204,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.555"  />
+        app:layout_constraintVertical_bias="0.556"  />
     <TextView
         android:id="@+id/carbProp"
         android:layout_width="wrap_content"
@@ -212,12 +215,16 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="15sp"
+        android:shadowColor="@color/darkOrange"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.93"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.555"  />
+        app:layout_constraintVertical_bias="0.556"  />
 
 
     <ProgressBar
@@ -231,7 +238,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.68" />
+        app:layout_constraintVertical_bias="0.70" />
     <TextView
         android:id="@+id/proteinPercent"
         android:layout_width="wrap_content"
@@ -247,7 +254,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.665"  />
+        app:layout_constraintVertical_bias="0.685"  />
     <TextView
         android:id="@+id/proteinProp"
         android:layout_width="wrap_content"
@@ -258,12 +265,16 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="15sp"
+        android:shadowColor="@color/darkOrange"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.93"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.665"  />
+        app:layout_constraintVertical_bias="0.685"  />
 
     <ProgressBar
         android:id="@+id/fatBar"
@@ -276,7 +287,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.80" />
+        app:layout_constraintVertical_bias="0.83" />
     <TextView
         android:id="@+id/fatPercent"
         android:layout_width="wrap_content"
@@ -292,7 +303,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.776"  />
+        app:layout_constraintVertical_bias="0.804"  />
     <TextView
         android:id="@+id/fatProp"
         android:layout_width="wrap_content"
@@ -303,12 +314,16 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="15sp"
+        android:shadowColor="@color/darkOrange"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.93"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.776"  />
+        app:layout_constraintVertical_bias="0.804" />
 
     <TextView
         android:id="@+id/calorieText"
@@ -329,7 +344,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.38" />
+        app:layout_constraintVertical_bias="0.36" />
 
     <TextView
         android:id="@+id/macro1Text"
@@ -350,7 +365,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.50" />
+        app:layout_constraintVertical_bias="0.49" />
 
     <TextView
         android:id="@+id/macro2Text"
@@ -392,7 +407,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.74" />
+        app:layout_constraintVertical_bias="0.75" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

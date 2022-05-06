@@ -10,7 +10,9 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import java.text.SimpleDateFormat
+import java.sql.Time
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 
@@ -26,6 +28,7 @@ class NewDietActivity : AppCompatActivity() {
 
     private lateinit var sharedpreferences: SharedPreferences
     private lateinit var mName: EditText
+    private lateinit var mDate: String
     private lateinit var mGender: Switch
     private lateinit var mAge: EditText
     private lateinit var mWeight: EditText
@@ -128,6 +131,7 @@ class NewDietActivity : AppCompatActivity() {
                 showHide(mFats)
                 showHide(mCarbs)
                 showHide(mProteins)
+                showHide(mInfoButton2)
 
                 mName.isEnabled = false
                 mGender.isEnabled = false
@@ -276,8 +280,11 @@ class NewDietActivity : AppCompatActivity() {
                 level
             )
 
+            mDate = getCurrentDate().toString()
+
             val editor = sharedpreferences.edit()
             editor.putString("nameOfDiet", mName.text.toString())
+            editor.putString("date", mDate.toString())
             editor.putInt("gender", gender)
             editor.putInt("age", mAge.text.toString().toInt())
             editor.putFloat("heightFeet", mFeet.text.toString().toDouble().toFloat())
@@ -308,15 +315,21 @@ class NewDietActivity : AppCompatActivity() {
             myDietIntent.putExtra("currProteins", 0)
             myDietIntent.putExtra("currCarbs", 0)
             myDietIntent.putExtra("currFats", 0)
-            val c: Date = Calendar.getInstance().getTime()
-            val df = SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault())
-            var formattedDate: String? = df.format(c)
-            myDietIntent.putExtra("dateOfDiet", formattedDate.toString())
+            myDietIntent.putExtra("date", mDate.toString());
             startActivity(myDietIntent)
         }
     }
 
     //HELPER FUNCTIONS
+
+
+    fun getCurrentDate(): String? {
+        val time =  LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy")
+        val formatted = time.format(formatter)
+        return (formatted.toString())
+    }
+
     fun showHide(view:View) {
         view.visibility = if (view.visibility == View.VISIBLE){
             View.INVISIBLE
