@@ -286,7 +286,7 @@ class NewDietActivity : AppCompatActivity() {
             editor.putInt("targetCalories", userMacros.toInt())
             editor.putInt("targetProteins", ((userMacros * 0.4) / 4.0).toInt())
             editor.putInt("targetCarbs", ((userMacros * 0.3) / 4.0).toInt())
-            editor.putInt("targetFats", ((userMacros * 0.3) / 4.0).toInt())
+            editor.putInt("targetFats", ((userMacros * 0.03)).toInt())
             editor.putInt("currCalories", 0)
             editor.putInt("currProteins", 0)
             editor.putInt("currCarbs", 0)
