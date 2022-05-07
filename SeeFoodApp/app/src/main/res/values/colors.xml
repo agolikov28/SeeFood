@@ -3,9 +3,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="lightGreen">#90BE6D</color>
+
     <color name="shadowGreen">#5F7A47</color>
     <color name="lightOrange">#F1A463</color>
     <color name="darkOrange">#D97F39</color>
+
+    <color name="firstGreen">#9DDC8C</color>
+    <color name="secondGreen">#A7A1DF</color>
+    <color name="thirdGreen">#EFB69C</color>
 
     <color name="bmiBlue">#4cc9f0</color>
     <color name="bmiGreen">#35ff69</color>

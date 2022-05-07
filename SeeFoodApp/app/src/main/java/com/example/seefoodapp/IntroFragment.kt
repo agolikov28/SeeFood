@@ -16,7 +16,9 @@ class IntroFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     var pageTitle: String = ""
+    var pageText: String = ""
     private lateinit var mTextView: TextView
+    private lateinit var mTextView2: TextView
     private lateinit var mImageView: ImageView
 
 
@@ -39,12 +41,14 @@ class IntroFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val f1 = "Welcome to SeeFood!"
-        val f2 = "STEP 1:\nCreate a new diet and enter your measurements"
+        val f2 = "STEP 1:\n"
 
         mTextView = view.findViewById(R.id.fragment1) as TextView
-
+        mTextView2 = view.findViewById(R.id.fragment2) as TextView
 
         mTextView!!.text = pageTitle
+        mTextView2!!.text = pageText
+
         if(mTextView.text.equals(f1)){
             mImageView = view.findViewById(R.id.image1) as ImageView
             showHide(mImageView)
@@ -61,6 +65,10 @@ class IntroFragment : Fragment() {
 
     fun setTitle(title: String) {
         pageTitle = title
+    }
+
+    fun setDesc(insertText: String) {
+        pageText = insertText
     }
 
     fun showHide(view:View) {

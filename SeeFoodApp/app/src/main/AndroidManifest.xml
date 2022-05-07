@@ -11,7 +11,7 @@
 
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="SeeFood"
         android:roundIcon="@mipmap/bunnylogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.SeeFoodApp"
@@ -20,17 +20,19 @@
 
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <activity
             android:name=".HomePageActivity"
-            android:label="Home Page" />
+            android:label="Home"
+             />
 
         <activity
             android:name=".MyDietActivity"
@@ -39,7 +41,10 @@
         <activity
             android:name=".NewDietActivity"
             android:label="" />
-
+        
+        <activity
+            android:name=".PopUpActivity"
+            android:label="" />
     </application>
 
     <meta-data

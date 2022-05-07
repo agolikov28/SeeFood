@@ -11,6 +11,7 @@ import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.Html
 import android.text.InputType
 import android.util.Log
 import android.widget.*
@@ -49,6 +50,8 @@ class MyDietActivity : AppCompatActivity() {
     private lateinit var proteinProp: TextView
     private lateinit var fatProp: TextView
     private lateinit var calorieProp: TextView
+
+    private lateinit var mInfoButton: ImageButton
 
     private lateinit var image: InputImage
     private lateinit var startForResult : ActivityResultLauncher<Intent>
@@ -96,6 +99,22 @@ class MyDietActivity : AppCompatActivity() {
         dietDate = findViewById(R.id.dateText)
         dietDate.text = sharedpreferences.getString("date", "MM-dd-yyyy").toString()
 
+        mInfoButton = findViewById(R.id.infoButton)
+        mInfoButton.setOnClickListener() {
+            val intent = Intent(this, PopUpActivity::class.java)
+            intent.putExtra("popuptitle", "How it Works")
+            intent.putExtra(
+                "popuptext",
+                "\nTo begin tracking, click \n\"SCAN NEW\"\n and capture/upload a nutrition label\n" +
+                        "\nIf the program is unable to process some macros, manually input them when prompted\n" +
+                        "\nTo manually change your macro levels, click \n\"EDIT DIET\"\n" +
+                        "\nTo reset the progress bars and fraction counters, click \n\"CLEAR DIET\"\n"
+
+            )
+            intent.putExtra("popupbtn", "Start Tracking!")
+            intent.putExtra("darkstatusbar", false)
+            startActivity(intent)
+        }
         startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult())
         { result: ActivityResult ->
             if (result.resultCode == Activity.RESULT_OK) {
@@ -115,7 +134,7 @@ class MyDietActivity : AppCompatActivity() {
                     currProtein += gProtein
                     currFat += gFat
                     currCalories += calories
-                    updateBars()
+                    updateBars(false)
                 }
             }
 
@@ -123,7 +142,7 @@ class MyDietActivity : AppCompatActivity() {
 
         scanButton.setOnClickListener {
             scanLabel()
-            updateBars()
+            updateBars(false)
         }
 
         clearDietButton.setOnClickListener {
@@ -132,10 +151,10 @@ class MyDietActivity : AppCompatActivity() {
 
         editBtn.setOnClickListener {
             editStats()
-            updateBars()
+            updateBars(false)
         }
 
-        updateBars()
+        updateBars(false)
     }
 
     override fun onStart() {
@@ -148,7 +167,7 @@ class MyDietActivity : AppCompatActivity() {
         targetProtein = sharedpreferences.getInt("targetProteins", 0)
         targetCarbs = sharedpreferences.getInt("targetCarbs", 0)
         targetFat = sharedpreferences.getInt("targetFats", 0)
-        updateBars()
+        updateBars(false)
     }
 
     override fun onStop() {
@@ -195,7 +214,7 @@ class MyDietActivity : AppCompatActivity() {
         currProtein = 0
         currFat = 0
         currCalories = 0
-        updateBars()
+        updateBars(true)
     }
 
     private fun editStats(){
@@ -238,7 +257,7 @@ class MyDietActivity : AppCompatActivity() {
             targetCarbs = carbBox.text.toString().toInt()
             targetProtein = proteinBox.text.toString().toInt()
             targetCalories = calorieBox.text.toString().toInt()
-            updateBars()
+            updateBars(false)
             Toast.makeText(this, "Saved Successfully", Toast.LENGTH_SHORT).show()
         }
 
@@ -252,7 +271,7 @@ class MyDietActivity : AppCompatActivity() {
     }
 
 
-    private fun updateBars(){
+    private fun updateBars(clearThem: Boolean){
         Log.i(TAG, "Bars Updated")
         carbBar.max = targetCarbs
         proteinBar.max = targetProtein
@@ -274,17 +293,28 @@ class MyDietActivity : AppCompatActivity() {
         fatProp.text = currFat.toString() + "/" + targetFat.toString()
         calorieProp.text = currCalories.toString() + "/" + targetCalories.toString()
 
-        if((currCarbs/targetCarbs) >= 1){
-            carbBar.progressTintList = ColorStateList.valueOf(applicationContext.resources.getColor(R.color.shadowGreen))
-        }
-        if((currProtein/targetProtein) >= 1){
-            proteinBar.progressTintList = ColorStateList.valueOf(applicationContext.resources.getColor(R.color.shadowGreen))
-        }
-        if((currFat/targetFat) >= 1){
-            fatBar.progressTintList = ColorStateList.valueOf(applicationContext.resources.getColor(R.color.shadowGreen))
-        }
-        if((currCalories/targetCalories) >= 1){
-            calorieBar.progressTintList = ColorStateList.valueOf(applicationContext.resources.getColor(R.color.shadowGreen))
+        if(!(clearThem)) {
+            if ((currCarbs / targetCarbs) >= 1) {
+                carbBar.progressTintList =
+                    ColorStateList.valueOf(applicationContext.resources.getColor(R.color.shadowGreen))
+            }
+            if ((currProtein / targetProtein) >= 1) {
+                proteinBar.progressTintList =
+                    ColorStateList.valueOf(applicationContext.resources.getColor(R.color.shadowGreen))
+            }
+            if ((currFat / targetFat) >= 1) {
+                fatBar.progressTintList =
+                    ColorStateList.valueOf(applicationContext.resources.getColor(R.color.shadowGreen))
+            }
+            if ((currCalories / targetCalories) >= 1) {
+                calorieBar.progressTintList =
+                    ColorStateList.valueOf(applicationContext.resources.getColor(R.color.shadowGreen))
+            }
+        }else{
+            carbBar.progressTintList = ColorStateList.valueOf(applicationContext.resources.getColor(R.color.lightOrange))
+            proteinBar.progressTintList = ColorStateList.valueOf(applicationContext.resources.getColor(R.color.lightOrange))
+            fatBar.progressTintList = ColorStateList.valueOf(applicationContext.resources.getColor(R.color.lightOrange))
+            calorieBar.progressTintList = ColorStateList.valueOf(applicationContext.resources.getColor(R.color.lightOrange))
         }
 
 
@@ -380,7 +410,7 @@ class MyDietActivity : AppCompatActivity() {
             ) { dialog, whichButton ->
                 iFat = fatBox.text.toString().toInt()
                 currFat += iFat
-                updateBars()
+                updateBars(false)
                 Toast.makeText(this, "$iFat Grams of Fat Inputted Successfully", Toast.LENGTH_SHORT).show()
             }
 
@@ -414,7 +444,7 @@ class MyDietActivity : AppCompatActivity() {
             ) { dialog, whichButton ->
                 iCarb = carbBox.text.toString().toInt()
                 currCarbs += iCarb
-                updateBars()
+                updateBars(false)
                 Toast.makeText(this, "$iCarb Grams of Carbohydrates Inputted Successfully", Toast.LENGTH_SHORT).show()
             }
 
@@ -447,7 +477,7 @@ class MyDietActivity : AppCompatActivity() {
             ) { dialog, whichButton ->
                 iProtein= proteinBox.text.toString().toInt()
                 currProtein += iProtein
-                updateBars()
+                updateBars(false)
                 Toast.makeText(this, "$iProtein Grams of Protein Inputted Successfully", Toast.LENGTH_SHORT).show()
             }
 
@@ -481,7 +511,7 @@ class MyDietActivity : AppCompatActivity() {
             ) { dialog, whichButton ->
                 iCalorie= calorieBox.text.toString().toInt()
                 currCalories += iCalorie
-                updateBars()
+                updateBars(false)
                 Toast.makeText(this, "$iCalorie Calories Inputted Successfully", Toast.LENGTH_SHORT).show()
             }
 

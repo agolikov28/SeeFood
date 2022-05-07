@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/shadowGreen"
@@ -16,21 +17,26 @@
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/black"
-        android:layout_above="@+id/button_layout"/>
+        android:layout_height="3dp"
+        android:layout_above="@+id/button_layout"
+        android:background="@color/white" />
 
     <RelativeLayout
         android:id="@+id/button_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
+
         <Button
-            android:id="@+id/btn_skip"
+            android:id="@+id/backbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SKIP"
-            android:background="@null"/>
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/rocko_bold"
+            android:text="BACK"
+            android:textColor="@color/white" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,34 +49,39 @@
                 android:layout_height="wrap_content"
                 android:text="-"
                 android:textColor="@color/white"
-                android:textSize="30sp"
-                android:textStyle="bold"/>
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/indicator2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="-"
                 android:textColor="@color/darkOrange"
-                android:textSize="30sp"
-                android:textStyle="bold"/>
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/indicator3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="-"
                 android:textColor="@color/darkOrange"
-                android:textSize="30sp"
-                android:textStyle="bold"/>
+                android:textSize="40sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <Button
-            android:id="@+id/btn_next"
+            android:id="@+id/nextbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:background="@null"
-            android:text="NEXT" />
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/rocko_bold"
+            android:text="NEXT"
+            android:textColor="@color/white" />
     </RelativeLayout>
 
 </RelativeLayout>

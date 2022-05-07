@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -27,10 +28,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var indicator1: TextView
     private lateinit var indicator2: TextView
     private lateinit var indicator3: TextView
-    private lateinit var skipButton: Button
+    private lateinit var backButton: Button
     private lateinit var nextButton: Button
     private lateinit var adapter: MyPagerAdapter
     private lateinit var viewPager: ViewPager
+    private lateinit var ourView: RelativeLayout
 
 
     lateinit var preference: SharedPreferences
@@ -39,10 +41,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        ourView = findViewById(R.id.main_layout)
 
         val homePageIntent = Intent(this, HomePageActivity::class.java)
-
         preference = getSharedPreferences("IntroSlider", Context.MODE_PRIVATE)
+
 
         fragment1 = IntroFragment()
         fragment2 = IntroFragment()
@@ -52,8 +55,12 @@ class MainActivity : AppCompatActivity() {
         indicator2 = findViewById(R.id.indicator2)
         indicator3 = findViewById(R.id.indicator3)
 
-        skipButton = findViewById(R.id.btn_skip)
-        nextButton = findViewById(R.id.btn_next)
+        backButton = findViewById(R.id.backbtn)
+        nextButton = findViewById(R.id.nextbtn)
+
+        nextButton.setBackgroundColor(applicationContext.resources.getColor(R.color.firstGreen))
+        backButton.setBackgroundColor(applicationContext.resources.getColor(R.color.firstGreen))
+
 
         viewPager = findViewById(R.id.view_pager)
 
@@ -61,8 +68,13 @@ class MainActivity : AppCompatActivity() {
             startActivity(homePageIntent)
         }
         fragment1.setTitle("Welcome to SeeFood!")
-        fragment2.setTitle("STEP 1:\nCreate a new diet and enter your measurements")
-        fragment3.setTitle("STEP 2:\nScan nutrition labels, and\ntrack your macro intake")
+        fragment2.setTitle("STEP 1:\n")
+        fragment3.setTitle("STEP 2:\n")
+
+        fragment1.setDesc("")
+        fragment2.setDesc("Create a new diet and enter\nyour measurements")
+        fragment3.setDesc("Scan nutrition labels, and\ntrack your macro intake")
+
 
         adapter = MyPagerAdapter(supportFragmentManager)
         adapter.list.add(fragment1)
@@ -74,10 +86,13 @@ class MainActivity : AppCompatActivity() {
             viewPager.currentItem++
         }
 
-        skipButton.setOnClickListener { startActivity(homePageIntent)
-            val editor = preference.edit()
-            editor.putBoolean(prefIntro, false)
-            editor.apply() }
+        backButton.setOnClickListener {
+            viewPager.currentItem--
+//            startActivity(homePageIntent)
+//            val editor = preference.edit()
+//            editor.putBoolean(prefIntro, false)
+//            editor.apply()
+        }
 
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
@@ -111,18 +126,27 @@ class MainActivity : AppCompatActivity() {
 
                 when (viewPager.currentItem) {
                     0 -> {
+                        ourView.setBackgroundColor(applicationContext.resources.getColor(R.color.firstGreen))
+                        nextButton.setBackgroundColor(applicationContext.resources.getColor(R.color.firstGreen))
+                        backButton.setBackgroundColor(applicationContext.resources.getColor(R.color.firstGreen))
                         indicator1.setTextColor(Color.WHITE)
-                        indicator2.setTextColor(applicationContext.resources.getColor(R.color.darkOrange))
-                        indicator3.setTextColor(applicationContext.resources.getColor(R.color.darkOrange))
+                        indicator2.setTextColor(Color.GRAY)
+                        indicator3.setTextColor(Color.GRAY)
                     }
                     1 -> {
-                        indicator1.setTextColor(applicationContext.resources.getColor(R.color.darkOrange))
+                        ourView.setBackgroundColor(applicationContext.resources.getColor(R.color.secondGreen))
+                        nextButton.setBackgroundColor(applicationContext.resources.getColor(R.color.secondGreen))
+                        backButton.setBackgroundColor(applicationContext.resources.getColor(R.color.secondGreen))
+                        indicator1.setTextColor(Color.GRAY)
                         indicator2.setTextColor(Color.WHITE)
-                        indicator3.setTextColor(applicationContext.resources.getColor(R.color.darkOrange))
+                        indicator3.setTextColor(Color.GRAY)
                     }
                     2 -> {
-                        indicator1.setTextColor(applicationContext.resources.getColor(R.color.darkOrange))
-                        indicator2.setTextColor(applicationContext.resources.getColor(R.color.darkOrange))
+                        ourView.setBackgroundColor(applicationContext.resources.getColor(R.color.thirdGreen))
+                        nextButton.setBackgroundColor(applicationContext.resources.getColor(R.color.thirdGreen))
+                        backButton.setBackgroundColor(applicationContext.resources.getColor(R.color.thirdGreen))
+                        indicator1.setTextColor(Color.GRAY)
+                        indicator2.setTextColor(Color.GRAY)
                         indicator3.setTextColor(Color.WHITE)
                     }
                 }

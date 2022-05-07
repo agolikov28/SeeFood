@@ -3,17 +3,18 @@ package com.example.seefoodapp
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.Editable
+import android.text.Html
 import android.text.TextWatcher
+import android.view.Gravity
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import java.sql.Time
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-import java.util.*
 
 
 class NewDietActivity : AppCompatActivity() {
@@ -43,6 +44,8 @@ class NewDietActivity : AppCompatActivity() {
     private lateinit var mActivityLevel: RadioGroup
     private lateinit var mInfoButton: ImageButton
     private lateinit var mInfoButton2: ImageButton
+    private lateinit var mInfoButton3: ImageButton
+
 
     private lateinit var clearButton: Button
 
@@ -52,7 +55,7 @@ class NewDietActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_diet_activity)
 
-        sharedpreferences = getSharedPreferences("shared_preferences", Context.MODE_PRIVATE)
+        sharedpreferences = getSharedPreferences("shared_preferences", MODE_PRIVATE)
 
         saveButton = findViewById<Button>(R.id.saveBtn)
         clearButton = findViewById(R.id.clearBtn)
@@ -84,12 +87,33 @@ class NewDietActivity : AppCompatActivity() {
 
         mInfoButton = findViewById(R.id.infoButton)
         mInfoButton.setOnClickListener() {
-            Toast.makeText(applicationContext,"How many times do you exercise a week? Low: 0-1 Medium: 3-4 High: 5-7",Toast.LENGTH_LONG).show()
+            val toast = Toast.makeText(
+                applicationContext,
+                Html.fromHtml("How often do you exercise? (days/week) <b>Low:</b> 0-1 \n<b>Medium: </b>3-4 \n<b>High: </b>5-7"),
+                Toast.LENGTH_LONG
+            )
+            toast.setGravity(Gravity.CENTER, 0, 0)
+            toast.show()
         }
 
         mInfoButton2 = findViewById(R.id.infoButton2)
         mInfoButton2.setOnClickListener() {
-            Toast.makeText(applicationContext,"This is the daily recommend intake, based on your BMI",Toast.LENGTH_LONG).show()
+            Toast.makeText(
+                applicationContext,
+                Html.fromHtml("This is the <b>daily</b> recommended intake"),
+                Toast.LENGTH_LONG
+            ).show();
+        }
+
+        mInfoButton3 = findViewById(R.id.infoButton3)
+        mInfoButton3.setOnClickListener() {
+            val toast = Toast.makeText(
+                applicationContext,
+                Html.fromHtml("<b>Blue:</b> Underweight\n<b>Green:</b> Healthy\n<b>Yellow:</b> Overweight\n<b>Orange:</b> Obese"),
+                Toast.LENGTH_LONG
+            )
+            toast.setGravity(Gravity.CENTER, 0, 0)
+            toast.show()
         }
 
         val calculateBtn = findViewById<Button>(R.id.calculateButton)
@@ -132,6 +156,7 @@ class NewDietActivity : AppCompatActivity() {
                 showHide(mCarbs)
                 showHide(mProteins)
                 showHide(mInfoButton2)
+                showHide(mInfoButton3)
 
                 mName.isEnabled = false
                 mGender.isEnabled = false
@@ -216,8 +241,16 @@ class NewDietActivity : AppCompatActivity() {
                             && et3.isNotEmpty()
                             && et4.isNotEmpty()
                 }
-                override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int){}
-                override fun afterTextChanged(s: Editable){}
+
+                override fun beforeTextChanged(
+                    s: CharSequence,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) {
+                }
+
+                override fun afterTextChanged(s: Editable) {}
             })
         }
 
@@ -324,16 +357,16 @@ class NewDietActivity : AppCompatActivity() {
 
 
     fun getCurrentDate(): String? {
-        val time =  LocalDateTime.now()
+        val time = LocalDateTime.now()
         val formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy")
         val formatted = time.format(formatter)
         return (formatted.toString())
     }
 
-    fun showHide(view:View) {
-        view.visibility = if (view.visibility == View.VISIBLE){
+    fun showHide(view: View) {
+        view.visibility = if (view.visibility == View.VISIBLE) {
             View.INVISIBLE
-        } else{
+        } else {
             View.VISIBLE
         }
     }
@@ -358,17 +391,26 @@ class NewDietActivity : AppCompatActivity() {
     }
 
     // Calculates Macros based on imperial system
-    fun calculateMacrosImperial(age: Int, gender: Int, heightFeet: Double, heightInches: Double, weightLbs: Double, activityLevel: Double): Double {
+    fun calculateMacrosImperial(
+        age: Int,
+        gender: Int,
+        heightFeet: Double,
+        heightInches: Double,
+        weightLbs: Double,
+        activityLevel: Double
+    ): Double {
         // Calculate macros for women
-        if(gender == 1) {
+        if (gender == 1) {
             val totalHeightInCm = (heightFeet * INCHES_IN_FOOT + heightInches) * 2.54
-            val BMR = 655.1 + (9.563 * (weightLbs * 0.453592)) + (1.85 * totalHeightInCm) - (4.676 * age)
+            val BMR =
+                655.1 + (9.563 * (weightLbs * 0.453592)) + (1.85 * totalHeightInCm) - (4.676 * age)
             return (BMR * activityLevel)
         }
         // Calculate macros for men
         else {
             val totalHeightInCm = (heightFeet * INCHES_IN_FOOT + heightInches) * 2.54
-            val BMR = 66.5 + (13.75 * (weightLbs * 0.453592)) + (5.003 * totalHeightInCm) - (6.75 * age)
+            val BMR =
+                66.5 + (13.75 * (weightLbs * 0.453592)) + (5.003 * totalHeightInCm) - (6.75 * age)
             return (BMR * activityLevel)
         }
     }
