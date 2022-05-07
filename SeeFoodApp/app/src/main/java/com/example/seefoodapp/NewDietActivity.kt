@@ -202,8 +202,8 @@ class NewDietActivity : AppCompatActivity() {
                 )
 
                 mCalories.text = userMacros.toInt().toString().plus(" cals")
-                mProteins.text = ((userMacros * 0.4) / 4.0).toInt().toString().plus("g")
-                mCarbs.text = ((userMacros * 0.3) / 4.0).toInt().toString().plus("g")
+                mProteins.text = (userMacros * 0.05625).toInt().toString().plus("g")
+                mCarbs.text = (userMacros * 0.1375).toInt().toString().plus("g")
                 mFats.text = (userMacros * 0.03).toInt().toString().plus("g")
 
                 // sets color of BMI range (maybe explain colors in infotip)
@@ -324,9 +324,9 @@ class NewDietActivity : AppCompatActivity() {
             editor.putFloat("heightInches", mInches.text.toString().toDouble().toFloat())
             editor.putFloat("weight", mWeight.text.toString().toDouble().toFloat())
             editor.putInt("targetCalories", userMacros.toInt())
-            editor.putInt("targetProteins", ((userMacros * 0.4) / 4.0).toInt())
-            editor.putInt("targetCarbs", ((userMacros * 0.3) / 4.0).toInt())
-            editor.putInt("targetFats", ((userMacros * 0.03)).toInt())
+            editor.putInt("targetProteins", (userMacros * 0.05625).toInt())
+            editor.putInt("targetCarbs", (userMacros * 0.1375).toInt())
+            editor.putInt("targetFats", (userMacros * 0.03).toInt())
             editor.putInt("currCalories", 0)
             editor.putInt("currProteins", 0)
             editor.putInt("currCarbs", 0)
@@ -334,21 +334,6 @@ class NewDietActivity : AppCompatActivity() {
             editor.commit()
 
             val myDietIntent = Intent(this, MyDietActivity::class.java)
-            myDietIntent.putExtra("nameOfDiet", mName.text.toString())
-            myDietIntent.putExtra("gender", gender) // 1 if female, 0 if male
-            myDietIntent.putExtra("age", mAge.text.toString().toInt())
-            myDietIntent.putExtra("heightFeet", mFeet.text.toString().toDouble())
-            myDietIntent.putExtra("heightInches", mInches.text.toString().toDouble())
-            myDietIntent.putExtra("weight", mWeight.text.toString().toDouble())
-            myDietIntent.putExtra("targetCalories", userMacros.toInt())
-            myDietIntent.putExtra("targetProteins", ((userMacros * 0.4) / 4.0).toInt())
-            myDietIntent.putExtra("targetCarbs", ((userMacros * 0.3) / 4.0).toInt())
-            myDietIntent.putExtra("targetFats", ((userMacros * 0.3) / 4.0).toInt())
-            myDietIntent.putExtra("currCalories", 0)
-            myDietIntent.putExtra("currProteins", 0)
-            myDietIntent.putExtra("currCarbs", 0)
-            myDietIntent.putExtra("currFats", 0)
-            myDietIntent.putExtra("date", mDate.toString());
             startActivity(myDietIntent)
         }
     }
