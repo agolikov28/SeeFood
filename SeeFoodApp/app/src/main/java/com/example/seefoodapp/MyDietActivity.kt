@@ -234,10 +234,20 @@ class MyDietActivity : AppCompatActivity() {
         alert.setPositiveButton(
             "Save"
         ) { dialog, whichButton ->
-            targetFat = fatBox.text.toString().toInt()
-            targetCarbs = carbBox.text.toString().toInt()
-            targetProtein = proteinBox.text.toString().toInt()
-            targetCalories = calorieBox.text.toString().toInt()
+
+            if (fatBox.text.toString() != ""){
+                targetFat = fatBox.text.toString().toInt()
+            }
+            if (carbBox.text.toString() != ""){
+                targetCarbs = carbBox.text.toString().toInt()
+            }
+            if (proteinBox.text.toString() != ""){
+                targetProtein = proteinBox.text.toString().toInt()
+            }
+            if (calorieBox.text.toString() != ""){
+                targetCalories = calorieBox.text.toString().toInt()
+            }
+
             updateBars()
             Toast.makeText(this, "Saved Successfully", Toast.LENGTH_SHORT).show()
         }
@@ -286,7 +296,6 @@ class MyDietActivity : AppCompatActivity() {
         if((currCalories/targetCalories) >= 1){
             calorieBar.progressTintList = ColorStateList.valueOf(applicationContext.resources.getColor(R.color.shadowGreen))
         }
-
 
     }
 
