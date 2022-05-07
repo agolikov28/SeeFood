@@ -29,12 +29,16 @@
         </activity>
 
         <activity
+            android:name=".HomePageActivity"
+            android:label="Home Page" />
+
+        <activity
             android:name=".MyDietActivity"
-            android:label="My Diet Activity" />
+            android:label="" />
 
         <activity
             android:name=".NewDietActivity"
-            android:label="New Diet Activity" />
+            android:label="" />
 
     </application>
 

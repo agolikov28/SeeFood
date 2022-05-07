@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IntroFragment">
+
+    <TextView
+        android:id="@+id/fragment1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:fontFamily="@font/rocko_normal"
+        android:letterSpacing="0.03"
+        android:textAlignment="center"
+        android:text="Welcome!"
+        android:layout_marginTop="220dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="25sp"/>
+    <ImageView
+        android:id="@+id/image1"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        android:src="@drawable/sliderbunnylogo"
+        />
+    <ImageView
+        android:id="@+id/image2"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="45dp"
+        android:visibility="invisible"
+        android:src="@drawable/food_logos"
+        />
+    <ImageView
+        android:id="@+id/image3"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:visibility="invisible"
+        android:src="@drawable/photo_logos"
+        />
+
+</FrameLayout>
