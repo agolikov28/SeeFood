@@ -43,6 +43,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         ourView = findViewById(R.id.main_layout)
 
+
+
         val homePageIntent = Intent(this, HomePageActivity::class.java)
         preference = getSharedPreferences("IntroSlider", Context.MODE_PRIVATE)
 
