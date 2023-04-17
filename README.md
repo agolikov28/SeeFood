@@ -24,7 +24,7 @@ We need to be able to track certain intakes, overall calories, protein, carbohyd
 We also calculate how much is needed daily based on the diet they previously selected. This way we can show 
 how much more of each group they need to eat to fulfil their daily intake.
 
-#### Preliminary Wireframe: [IMG_4971.heic.pdf](https://github.com/agolikov28/SeeFood/files/8438290/IMG_4971.heic.pdf)
+#### Preliminary Wireframe: [Medium Fidelity Mockup.pdf](https://github.com/agolikov28/SeeFood/files/11256349/StoryBoard.Mockup.pdf)
 
 ## Fundamental Parts
 ### Image Processing: 
