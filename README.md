@@ -43,10 +43,15 @@ https://user-images.githubusercontent.com/83187638/232629202-de920db2-b93a-40ef-
 We are going to need image processing to get the information from the labels into the application. Listed below are some sources we canuse for image processing.
 
 Using Google Keep: https://keep.google.com/u/0/ and
+
 https://gadgetstouse.com/blog/2021/05/21/copy-text-from-images-on-android-iphone-pc/#:~:text=Thanks%20to%20Google%20Lens%20technology,web%20and%20the%20mobile%20app.
+
 Stack Overflow Android Scanners: https://stackoverflow.com/questions/37287910/how-to-extract-text-from-image-android-app
+
 Camera Scanner: https://v4all123.blogspot.com/2018/03/simple-example-of-ocrreader-in-android.html
+
 Scan From Images: https://www.zoftino.com/extracting-text-from-images-android
+
 Using Firebase: https://developers.google.com/ml-kit/vision/text-recognition/v2/android
 
 #### Data Management:
